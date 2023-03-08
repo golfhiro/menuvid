@@ -13,3 +13,13 @@ ja:
       invalid: "%{attribute}が正しくありません。"
       blank: "%{attribute}を入力してください。"
       too_short: "%{attribute}は%{count}文字以上で入力してください。"
+  users:
+    create:
+      success: "ユーザー登録が完了しました"
+      fail: "ユーザー登録に失敗しました"
+  user_sessions:
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    destroy:
+      success: "ログアウトしました"
