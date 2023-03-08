@@ -4,16 +4,12 @@
 <!-- Form -->
   <%= form_with url: login_path, method: :post do |f| %>
     <div class="my-5">
-      <%= f.label :email %>
+      <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
     <div class="my-5">
-      <%= f.label :password %>
+      <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <div class="my-5">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
     <div class="d-grid">
       <%= f.submit 'ログイン', class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base' %>
