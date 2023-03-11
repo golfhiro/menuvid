@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  validates :name, presence: true
-  validates :video_id, presence: true
-  validates :thumbnail, presence: true
+  validates :video_id, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
+  validates :thumbnail, presence: true, uniqueness: true
 end
