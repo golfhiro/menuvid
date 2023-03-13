@@ -7,6 +7,6 @@ class TopsController < ApplicationController
 
     firstDay = date_now.beginning_of_month
     firstDayIndex = firstDay.wday
-    @calender = Array.new(35){|i| firstDay + (i - firstDayIndex)}
+    @calender = Array.new(34){|i| firstDay + (i - firstDayIndex)}
   end
 end
