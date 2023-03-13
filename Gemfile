@@ -52,6 +52,8 @@ gem "tailwindcss-rails"
 
 gem 'google-api-client', '~> 0.11'
 
+gem 'simple_calendar'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'
