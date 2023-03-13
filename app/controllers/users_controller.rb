@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to user_url(@user), success: t('.success')
+      redirect_to root_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
