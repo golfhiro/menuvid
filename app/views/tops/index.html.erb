@@ -1,32 +1,8 @@
-
-
 <!-- メイン -->
 <section class="max-w-screen-2xl px-4 md:px-8 mx-auto">
   <h1 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">1週間の献立</h1>
   <%# 動画を表示 %>
-  <!-- 日付と曜日 -->
-    <h1>月間表</h1>
-
-    <p><%= @month_now %></p>
-
-    <div>
-      <table class="border-collapse border border-slate-500 ">
-        <thead>
-          <tr>
-            <th class="border border-slate-600">月日</th>
-            <% @calender.each do |c| %>
-              <td><%= "#{c.month}/#{c.day}" %></td>
-            <% end %>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <th class="border border-slate-600">曜日</th>
-            <% @calender.each do |c| %>
-              <td><%= @weeks[c.wday] %></td>
-            <% end %>
-          </tr>
-        </thead>
-      </table>
-    </div>
+  <% @videos.each do |menu| %>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= menu.video_id %>" frameborder="0" allowfullscreen></iframe>
+  <% end %>
 </section>

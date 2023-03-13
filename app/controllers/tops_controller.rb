@@ -1,12 +1,7 @@
 class TopsController < ApplicationController
+  require 'google/apis/youtube_v3'
+
   def index
-    # 現在の曜日と年月日
-    date_now = Date.current
-
-    @weeks = ["日", "月", "火", "水", "木", "金", "土"]
-
-    firstDay = date_now.beginning_of_month
-    firstDayIndex = firstDay.wday
-    @calender = Array.new(34){|i| firstDay + (i - firstDayIndex)}
+    @videos =  Video.order('RANDOM()').limit(2)
   end
 end
