@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: 会員
+      dish: 料理
+      video: Youtube動画
     attributes:
       user:
         name: 名前
