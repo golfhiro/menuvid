@@ -101,6 +101,8 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     declarative (0.0.20)
+    dockerfile-rails (1.2.5)
+      rails
     erubi (1.12.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
@@ -195,6 +197,10 @@ GEM
       net-protocol
     nio4r (2.5.8)
     nokogiri (1.14.2-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.14.2-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     oauth (0.6.2)
       snaky_hash (~> 2.0)
@@ -302,6 +308,10 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.24-aarch64-linux)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.24-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.24-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -334,6 +344,8 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   administrate
@@ -341,6 +353,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dockerfile-rails (>= 1.2)
   google-api-client (~> 0.11)
   importmap-rails
   jbuilder
