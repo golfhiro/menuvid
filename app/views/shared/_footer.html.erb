@@ -1,21 +1,17 @@
 <!-- footer - start -->
 <div class="bg-white pt-4 sm:pt-10 lg:pt-12">
   <footer class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-t gap-12 lg:gap-8 pt-10 lg:pt-12 mb-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 border-t gap-12 lg:gap-8  lg:pt-12">
       <div class="col-span-full lg:col-span-2">
         <!-- logo - start -->
         <div class="lg:-mt-2 mb-4">
           <a href="/" class="inline-flex items-center text-black-800 text-xl md:text-2xl font-bold gap-2" aria-label="logo">
-            <svg width="95" height="94" viewBox="0 0 95 94" class="w-5 h-auto text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-            </svg>
 
             Youtube キッチン
           </a>
         </div>
         <!-- logo - end -->
 
-        <p class="text-gray-500 sm:pr-8 mb-6">Filler text is dummy text which has no meaning however looks very similar to real text.</p>
 
         <!-- social - start -->
         <div class="flex gap-4">
@@ -41,103 +37,18 @@
       </div>
 
       <!-- nav - start -->
-      <div>
-        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">Products</div>
-
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Overview</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Solutions</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Pricing</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Customers</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-
-      <!-- nav - start -->
-      <div>
-        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">Company</div>
-
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">About</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Investor Relations</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Jobs</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Press</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Blog</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-
-      <!-- nav - start -->
-      <div>
-        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">Support</div>
-
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Contact</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Documentation</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Chat</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">FAQ</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-
-      <!-- nav - start -->
-      <div>
-        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">Legal</div>
-
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Terms of Service</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Privacy Policy</a>
-          </div>
-
-          <div>
-            <a href="#" class="text-gray-500 hover:text-indigo-500 active:text-indigo-600 transition duration-100">Cookie settings</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-    </div>
-
-    <div class="text-gray-400 text-sm text-center border-t py-8">© 2021 - Present Flowrift. All rights reserved.</div>
+        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
+          <%= link_to '利用規約', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+        </div>
+        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
+          <%= link_to 'プライバシーポリシー', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+        </div>
+        <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
+          <%= link_to 'お問い合わせ', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+        </div>
   </footer>
+  <div class="text-gray-400 text-sm text-center  py-8">
+    © 2023 - Youtube kitchen.
+  </div>
 </div>
 <!-- footer - end -->
