@@ -1,5 +1,5 @@
 class TopsController < ApplicationController
-  require 'google/apis/youtube_v3'
+  include YoutubeApi
 
   def index
     @videos =  Video.order('RANDOM()').limit(2)
