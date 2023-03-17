@@ -2,7 +2,11 @@
 <section class="max-w-screen-2xl px-4 md:px-8 mx-auto">
   <h1 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">1週間の献立</h1>
   <%# 動画を表示 %>
-  <% @videos.each do |menu| %>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= menu.video_id %>" frameborder="0" allowfullscreen></iframe>
-  <% end %>
+    <div class="m-8 p-8 bg-gray-600">
+      <% @videos.each do |menu| %>
+        <div class="m-8 p-8 bg-gray-200">
+          <iframe class="mb-4 center" width="280" height="157" src="https://www.youtube.com/embed/<%= menu.video_id %>" frameborder=1 allow="fullscreen"></iframe>
+        </div>
+      <% end %>
+    </div>
 </section>
