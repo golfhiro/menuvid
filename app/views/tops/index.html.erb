@@ -2,11 +2,29 @@
 <section class="max-w-screen-2xl px-4 md:px-8 mx-auto">
   <h1 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">1週間の献立</h1>
   <%# 動画を表示 %>
-    <div class="m-8 p-8 bg-gray-600">
-      <% @videos.each do |menu| %>
-        <div class="m-8 p-8 bg-gray-200">
-          <iframe class="mb-4 center" width="280" height="157" src="https://www.youtube.com/embed/<%= menu.video_id %>" frameborder=1 allow="fullscreen"></iframe>
-        </div>
-      <% end %>
+    <div class="m-8 p-8 py-8 bg-gray-200 rounded-lg">
+      <% @dates.each do |date| %>
+      <div>
+        <h3><%= date %></h3>
+        <% video = @videos.sample %>
+        <% if video %>
+            <iframe class="mt-4 mb-4 pb-10 mx-auto" width="280" height="157" src="https://www.youtube.com/embed/<%= video.video_id %>" frameborder=1 allow="fullscreen"></iframe>
+        <% end %>
+      </div>
+<% end %>
+
     </div>
 </section>
+
+
+      <%# <% @videos.each do |menu| %> %>
+          <%# <iframe class="mt-4 mb-4 pb-10 mx-auto" width="280" height="157" src="https://www.youtube.com/embed/<%= menu.video_id %>" frameborder=1 allow="fullscreen"></iframe> %>
+      <%# <% end %> %>
+
+<%# <% @dates.each do |date| %> %>
+  <%# <%= date %><br> %>
+<%# <% end %> %>
+
+<%# <% @next_dates.each do |date| %> %>
+  <%# <%= date %><br> %>
+<%# <% end %> %>
