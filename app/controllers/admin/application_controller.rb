@@ -8,6 +8,9 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
 
+    #admin_root_pathにアクセスすると、Youtube APIを叩く
+    include YoutubeApi
+
     def authenticate_admin
       if current_user && current_user.role === "admin"
           admin_root_path
