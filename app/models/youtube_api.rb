@@ -1,29 +1,32 @@
 module YoutubeApi
   require 'google/apis/youtube_v3'
-  #Dishモデルからランダムに名前を取得
-  select_dishes =  Dish.pluck(:name).sample(1)
 
-  youtube = Google::Apis::YoutubeV3::YouTubeService.new
-  youtube.key = Rails.application.credentials.youtube_api[:youtube_api_key]
+  def get_videos
+    #Dishモデルからランダムに名前を取得
+    select_dishes =  Dish.pluck(:name).sample(1)
 
-  select_dishes.each do |dish|
-    # 検索結果を取得
-    results = youtube.list_searches(
-      :snippet,
-      type: "video",
-      q: dish + " " + "レシピ",
-      max_results: 1,
-      # 関連度が高い順
-      order: "relevance",
-    ).items
+    youtube = Google::Apis::YoutubeV3::YouTubeService.new
+    youtube.key = Rails.application.credentials.youtube_api[:youtube_api_key]
 
-    results.each do |result|
-      video = Video.new(
-        video_id: result.id.video_id,
-        title: result.snippet.title,
-        thumbnail: result.snippet.thumbnails.high.url
-      )
-      video.save
+    select_dishes.each do |dish|
+      # 検索結果を取得
+      results = youtube.list_searches(
+        :snippet,
+        type: "video",
+        q: dish + " " + "レシピ",
+        max_results: 1,
+        # 関連度が高い順
+        order: "relevance",
+      ).items
+
+      results.each do |result|
+        video = Video.new(
+          video_id: result.id.video_id,
+          title: result.snippet.title,
+          thumbnail: result.snippet.thumbnails.high.url
+        )
+        video.save
+      end
     end
   end
 end
