@@ -1,7 +1,6 @@
 module YoutubeApi
   require 'google/apis/youtube_v3'
 
-  def get_videos
     #Dishモデルからランダムに名前を取得
     select_dishes =  Dish.pluck(:name).sample(1)
 
@@ -27,6 +26,5 @@ module YoutubeApi
         )
         video.save
       end
-    end
   end
 end
