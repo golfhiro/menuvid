@@ -2,7 +2,7 @@ module YoutubeApi
   require 'google/apis/youtube_v3'
 
     #Dishモデルからランダムに名前を取得
-    select_dishes =  Dish.pluck(:name).sample(1)
+    select_dishes =  Dish.pluck(:name).sample(2)
 
     youtube = Google::Apis::YoutubeV3::YouTubeService.new
     youtube.key = Rails.application.credentials.youtube_api[:youtube_api_key]
