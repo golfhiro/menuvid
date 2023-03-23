@@ -138,6 +138,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffi (1.15.5)
     gems (1.2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -308,6 +309,14 @@ GEM
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -342,6 +351,7 @@ GEM
     tailwindcss-rails (2.0.24-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
+    tilt (2.1.0)
     timeout (0.3.2)
     trailblazer-option (0.1.2)
     turbo-rails (1.4.0)
@@ -395,6 +405,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   ransack
+  sassc-rails
   selenium-webdriver
   simple_calendar
   sorcery
