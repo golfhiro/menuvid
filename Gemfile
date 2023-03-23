@@ -54,7 +54,9 @@ gem 'google-api-client', '~> 0.11'
 
 gem 'simple_calendar'
 
-gem "administrate"
+gem 'ransack'
+gem 'kaminari'
+gem 'enum_help'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
