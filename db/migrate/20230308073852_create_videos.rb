@@ -4,6 +4,7 @@ class CreateVideos < ActiveRecord::Migration[7.0]
       t.string :video_id, null: false, unique: true
       t.string :title, null: false, unique: true
       t.string :thumbnail, null: false, unique: true
+      t.references :dish, foreign_key: true
 
       t.timestamps
     end
