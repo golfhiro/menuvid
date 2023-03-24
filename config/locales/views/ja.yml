@@ -4,6 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     submit: '送信'
+    update: '更新'
   users:
     new:
       title: '新規登録'
@@ -26,3 +27,5 @@ ja:
   password_resets:
     new:
       title: パスワードリセット申請
+    edit:
+      title: パスワードリセット
