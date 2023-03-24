@@ -68,14 +68,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    administrate (0.18.0)
-      actionpack (>= 5.0)
-      actionview (>= 5.0)
-      activerecord (>= 5.0)
-      jquery-rails (>= 4.0)
-      kaminari (>= 1.0)
-      sassc-rails (~> 2.1)
-      selectize-rails (~> 0.6)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -139,6 +131,8 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
@@ -188,10 +182,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jquery-rails (4.5.1)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
     jwt (2.7.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -304,6 +294,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     regexp_parser (2.7.0)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -323,7 +317,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selectize-rails (0.12.6)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -393,16 +386,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  administrate
   bootsnap
   capybara
   config
   cssbundling-rails
   debug
   dockerfile-rails (>= 1.2)
+  enum_help
   google-api-client (~> 0.11)
   importmap-rails
   jbuilder
+  kaminari
   letter_opener_web
   pg (~> 1.1)
   pry-byebug
@@ -410,6 +404,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
+  ransack
+  sassc-rails
   selenium-webdriver
   simple_calendar
   sorcery

@@ -41,7 +41,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 gem 'sorcery'
 
@@ -54,7 +54,9 @@ gem 'google-api-client', '~> 0.11'
 
 gem 'simple_calendar'
 
-gem "administrate"
+gem 'ransack'
+gem 'kaminari'
+gem 'enum_help'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
