@@ -1,0 +1,10 @@
+<div>
+  <h1 class="font-bold text-4xl">Dishes#new</h1>
+  <%= link_to '一覧へ戻る', action: 'index' %>
+
+  <%= form_tag search_videos_dishes_path, method: :get do %>
+    <%= select_tag :dish_id, options_for_select(@dishes.map {|d| [d.name, d.id]}) %>
+    <%= submit_tag '動画を保存する' %>
+  <% end %>
+
+</div>
