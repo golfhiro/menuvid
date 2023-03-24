@@ -17,4 +17,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
+  resources :dishes do
+    collection do
+      get 'search_videos'
+    end
+  end
 end
