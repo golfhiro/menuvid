@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-      resources :videos
-      resources :users
-      resources :dishes
-
-      root to: "videos#index"
-    end
   root "tops#index"
 
   resources :users
