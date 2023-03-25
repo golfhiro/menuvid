@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+  skip_before_action :require_login
   require 'google/apis/youtube_v3'
 
   def new
