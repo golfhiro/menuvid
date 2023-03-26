@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   namespace :admin do
-    root to: 'dashboards#index'
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-  end
+      resources :videos
+      resources :users
+      resources :menus
+      resources :dishes
+
+      root to: "videos#index"
+    end
+  # namespace :admin do
+  #   root to: 'dashboards#index'
+  #   get 'login', to: 'sessions#new'
+  #   post 'login', to: 'sessions#create'
+  #   delete 'logout', to: 'sessions#destroy'
+  # end
 
   root "tops#index"
 
