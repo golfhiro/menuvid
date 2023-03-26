@@ -1,5 +1,8 @@
 class DishesController < ApplicationController
-  skip_before_action :require_login
+    before_action :require_login
+    before_action :authenticate_admin
+    # skip_before_action :require_login
+
   require 'google/apis/youtube_v3'
 
   def new
@@ -39,4 +42,11 @@ class DishesController < ApplicationController
   def index
     @videos = Video.all
   end
+
+  private
+
+  def authenticate_admin
+    redirect_to root_path, warning: "管理者権限を持っていません" unless current_user.admin?
+  end
+
 end
