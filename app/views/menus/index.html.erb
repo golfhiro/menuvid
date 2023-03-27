@@ -1,0 +1,14 @@
+<% content_for(:title, t('.title')) %>
+<!-- メイン -->
+<section class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+  <h1 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6"><%= t('.title')%></h1>
+  <%# 動画を表示 %>
+    <div class="m-8 p-8 py-8 bg-gray-200 rounded-lg">
+      <% @menus.each do |menu| %>
+        <h3><%= menu.date.strftime('%-m/%-d (%a)') %></h3>
+        <div>
+          <iframe class="mt-4 mb-4 pb-10 mx-auto" width="280" height="157" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder=1 allow="fullscreen"></iframe>
+        </div>
+      <% end %>
+    </div>
+</section>

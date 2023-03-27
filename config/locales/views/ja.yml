@@ -32,7 +32,7 @@ ja:
       fail: "ログインに失敗しました"
     destroy:
       success: "ログアウトしました"
-  tops:
+  menus:
     index:
       title: '1週間の献立'
   password_resets:

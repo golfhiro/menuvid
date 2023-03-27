@@ -1,7 +1,7 @@
 class DishesController < ApplicationController
-    before_action :require_login
-    before_action :authenticate_admin
-    # skip_before_action :require_login
+  before_action :require_login
+  before_action :authenticate_admin
+  # skip_before_action :require_login
 
   require 'google/apis/youtube_v3'
 
@@ -40,7 +40,7 @@ class DishesController < ApplicationController
   end
 
   def index
-    @videos = Video.all
+    # @videos = Video.all
   end
 
   private
