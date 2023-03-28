@@ -40,7 +40,6 @@ class DishesController < ApplicationController
   end
 
   def index
-    # @videos = Video.all
   end
 
   private
