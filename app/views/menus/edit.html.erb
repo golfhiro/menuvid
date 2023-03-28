@@ -1,0 +1,5 @@
+<h1>献立変更</h1>
+<%= form_with model: @menu, local: true do |f| %>
+  <%= f.select :dish_id, options_for_select(@dishes.map {|d| [d.name, d.id]}, @menu.dish_id) %>
+  <%= f.submit '変更する' %>
+<% end %>
