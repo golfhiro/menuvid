@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
 
   def index
-    @menus = current_user.menus.where(date: Date.today.beginning_of_week..Date.today.end_of_week).includes(:dish)
+    @menus = current_user.menus.where(date: Date.today.beginning_of_week..Date.today.end_of_week).includes(:dish).order(date: :asc)
   end
 
   def create_weekly_menu
@@ -26,6 +26,28 @@ class MenusController < ApplicationController
       menu.save
     end
 
-    redirect_to menus_index_path
+    redirect_to menus_path
   end
+
+  def edit
+    @menu = current_user.menus.find(params[:id])
+    @dishes = Dish.all
+  end
+
+  def update
+    @menu = current_user.menus.find(params[:id])
+    @menu.update(dish_id: params[:menu][:dish_id])
+    redirect_to menus_path
+  end
+  # def edit
+  #   @menu = current_user.menus.find_by(date: params[:date])
+  #   @dishes = Dish.all
+  # end
+
+  # def update
+  #   @menu = current_user.menus.find_by(date: params[:date])
+  #   @menu.dish = Dish.find(params[:dish_id])
+  #   menu.save
+  #   redirect_to menus_path
+  # end
 end

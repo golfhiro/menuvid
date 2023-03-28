@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
-  get 'menus/index'
-  post 'menus/create_weekly_menu', to: 'menus#create_weekly_menu', as: 'menus_create_weekly_menu'
+  resources :menus, only: [:index, :edit, :update]
+  post 'menus/create_weekly_menu', to: 'menus#create_weekly_menu', as: 'create_weekly_menu'
 
   resources :dishes do
     collection do

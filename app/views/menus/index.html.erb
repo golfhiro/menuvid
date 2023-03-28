@@ -9,6 +9,9 @@
         <div>
           <iframe class="mt-4 mb-4 pb-10 mx-auto" width="280" height="157" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder=1 allow="fullscreen"></iframe>
         </div>
+        <div>
+        <%= link_to '変更する', edit_menu_path(menu.id) ,class: "btn btn-primary"%>
+        </div>
       <% end %>
     </div>
 </section>
