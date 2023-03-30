@@ -1,10 +1,10 @@
-<div>
-  <h1 class="font-bold text-4xl">Dishes#new</h1>
-  <%= link_to '一覧へ戻る', action: 'index' %>
-
-  <%= form_tag search_videos_dishes_path, method: :get do %>
-    <%= select_tag :dish_id, options_for_select(@dishes.map {|d| [d.name, d.id]}) %>
-    <%= submit_tag '動画を保存する' %>
+<h1 class="text-4xl font-bold mb-6 text-center">Youtube APIを叩く</h1>
+  <%= link_to '一覧へ戻る', action: 'index', class: "mb-4" %>
+  <%= form_tag search_videos_dishes_path, class: "w-full md:w-1/2", method: :get do %>
+    <div class="form-group">
+      <%= select_tag :dish_id, options_for_select(@dishes.map {|d| [d.name, d.id]}), class: "select select-bordered w-full" %>
+      <div class="form-group mt-6">
+        <%= submit_tag '動画を保存する',  class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
   <% end %>
-
-</div>

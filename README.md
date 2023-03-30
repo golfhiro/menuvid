@@ -1,8 +1,8 @@
-# サービス名：　 Youtube キッチン(仮)
+# サービス名：　 MenuVid
 
 ## サービス概要
 
-Youtube の料理動画で献立を作成するサービス
+Youtubeの料理動画で献立を作成するサービス
 
 ## メインのターゲットユーザー
 
@@ -55,7 +55,7 @@ Youtube の料理動画で献立を作成するサービス
 
 ## 画面遷移図
 
-[Youtube キッチン](https://www.figma.com/file/qCH0aAnM3k2fJmUI60gIZ0/Youtube%E3%80%80%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3%EF%BC%88%E4%BB%AE%EF%BC%89?node-id=0%3A1&t=mjXWwoaCMv0IuIe6-1)
+[MenuVid](https://www.figma.com/file/qCH0aAnM3k2fJmUI60gIZ0/Youtube%E3%80%80%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3%EF%BC%88%E4%BB%AE%EF%BC%89?node-id=0%3A1&t=mjXWwoaCMv0IuIe6-1)
 
 ## ER 図
 [ER図](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1WBiunSH1UaUV3wj-MIwnOj3ainAz0xxo)

@@ -39,15 +39,4 @@ class MenusController < ApplicationController
     @menu.update(dish_id: params[:menu][:dish_id])
     redirect_to menus_path
   end
-  # def edit
-  #   @menu = current_user.menus.find_by(date: params[:date])
-  #   @dishes = Dish.all
-  # end
-
-  # def update
-  #   @menu = current_user.menus.find_by(date: params[:date])
-  #   @menu.dish = Dish.find(params[:dish_id])
-  #   menu.save
-  #   redirect_to menus_path
-  # end
 end
