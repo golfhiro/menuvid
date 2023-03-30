@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :menus
+  has_many :menus, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 20}, uniqueness: true
   validates :email, presence: true, length: {maximum: 100}, uniqueness: true
