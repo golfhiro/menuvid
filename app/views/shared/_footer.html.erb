@@ -5,13 +5,12 @@
       <div class="col-span-full lg:col-span-2">
         <!-- logo - start -->
         <div class="lg:-mt-2 mb-4">
-          <a href="/" class="inline-flex items-center text-black-800 text-xl md:text-2xl font-bold gap-2" aria-label="logo">
-
-            MenuVid
+          <a class="inline-flex items-center gap-2.5" aria-label="logo">
+            <%= image_tag "logo.png", alt: "MenuVid", class: "h-6 md:h-8" %>
+            <span class="text-orange-500 text-2xl md:text-3xl font-bold">MenuVid</span>
           </a>
         </div>
         <!-- logo - end -->
-
 
         <!-- social - start -->
         <div class="flex gap-4">
@@ -38,17 +37,17 @@
 
       <!-- nav - start -->
         <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
-          <%= link_to '利用規約', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+          <%= link_to '利用規約',  class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
         </div>
         <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
-          <%= link_to 'プライバシーポリシー', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+          <%= link_to 'プライバシーポリシー',  class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
         </div>
         <div class="text-gray-800 font-bold tracking-widest uppercase mb-4">
-          <%= link_to 'お問い合わせ', root_path, class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
+          <%= link_to 'お問い合わせ', class: "text-gray-800 font-bold tracking-widest uppercase mb-4" %>
         </div>
   </footer>
   <div class="text-gray-400 text-sm text-center  py-8">
-    © 2023 - Youtube kitchen.
+    © 2023 - MenuVid.
   </div>
 </div>
 <!-- footer - end -->
