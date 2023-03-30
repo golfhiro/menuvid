@@ -2,7 +2,7 @@
   <%= image_tag "/pexels-dmitry-zvolskiy-2062426.jpg", width: "100%", height: "auto" %>
   <div class="absolute inset-0 opacity-50">
     <div class="relative flex flex-col items-center justify-center p-4 sm:max-w-xl z-10 h-full">
-    <h1 class="mb-8 text-center text-4xl font-bold text-red-600	sm:text-5xl md:mb-12 md:text-6xl">食事の献立に悩んでいる方必見！<br>アプリでサクッと決めよう。</h1>
+    <h1 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl">あなたの献立を提案します</h1>
   <%= button_to '献立を見る', menus_path, method: :get, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
   <%= form_with url: create_weekly_menu_path, method: :post, local: false do |f| %>
     <%= f.button '献立を作成する', class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
@@ -10,6 +10,3 @@
     </div>
   </div>
 </section>
-      <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">毎日の献立を考えるのは大変じゃないですか？</h1>
-      <h2 class="mb-8 text-center text-xl font-medium text-white sm:text-2xl md:mb-12 md:text-3xl">そんなあなたを助けたい！</h2>
-      <p class="mb-12 text-center text-lg text-white">Youtubeにはたくさんの料理動画があります。ぜひ、Youtubeで献立を作ってみて！</p>
