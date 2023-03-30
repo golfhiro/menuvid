@@ -13,23 +13,21 @@
       </div>
   <% end %>
 
-    <div class="my-5">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div class="md:flex">
+      <div class="p-8">
+        <%= f.label :name, class: "block mt-1 text-lg leading-tight font-medium text-gray-700" %>
+        <%= f.text_field :name, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your name" %>
+        <%= f.label :email, class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
+        <%= f.email_field :email, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your email" %>
+        <%= f.label :password, class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
+        <%= f.password_field :password, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your password" %>
+        <%= f.label :password_confirmation, class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
+        <%= f.password_field :password_confirmation, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Confirm your password" %>
+        <div class="mt-6">
+          <%= f.submit t('defaults.register'), class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
     </div>
-    <div class="my-5">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <div class="my-5">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <div class="my-5">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <div class="d-grid">
-      <%= f.submit t('defaults.register'), class: 'btn btn-active btn-primary' %>
-    </div>
+  </div>
   <% end %>
