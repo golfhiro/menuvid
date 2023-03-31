@@ -20,13 +20,16 @@ class SessionsController < ApplicationController
   end
 
   def guest_login
-    @guest_user = User.create(
-    name: 'ゲスト',
-    email: SecureRandom.alphanumeric(10) + "@email.com",
-    password: 'password',
-    password_confirmation: 'password'
-    )
+    @guest_user = User.find_by(email: 'guest@example.com')
+    unless @guest_user
+      @guest_user = User.create(
+        name: 'ゲスト',
+        email: 'guest@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    end
     auto_login(@guest_user)
-    redirect_to root_path, success: 'ゲストとしてログインしました'
+    redirect_to menus_path, success: 'ゲストとしてログインしました'
   end
 end
