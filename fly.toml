@@ -1,6 +1,6 @@
-# fly.toml file generated for youtube-kitchen on 2023-03-15T09:33:17+09:00
+# fly.toml file generated for menuvid on 2023-03-30T17:56:22+09:00
 
-app = "youtube-kitchen"
+app = "menuvid"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "nrt"

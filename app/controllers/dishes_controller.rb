@@ -45,7 +45,7 @@ class DishesController < ApplicationController
   private
 
   def authenticate_admin
-    redirect_to root_path, warning: "管理者権限を持っていません" unless current_user.admin?
+    redirect_to menus_path, warning: "管理者権限を持っていません" unless current_user.admin?
   end
 
 end
