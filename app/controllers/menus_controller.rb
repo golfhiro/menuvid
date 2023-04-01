@@ -1,32 +1,33 @@
 class MenusController < ApplicationController
-
   def index
-    @menus = current_user.menus.where(date: Date.today.beginning_of_week..Date.today.end_of_week).includes(:dish).order(date: :asc)
+    @menus = current_user.menus.this_week
   end
 
   def create_weekly_menu
-    # 今週の日付を取得
-    dates = (Date.today.beginning_of_week..Date.today.end_of_week).map { |date| date.strftime('%-m/%-d (%a)') }
+  # 今週の日付を取得
+    dates = (Date.today.beginning_of_week..Date.today.end_of_week)
 
     # 1週間分の献立を作成する
     dates.each do |date|
-      # すでに同じ日付が登録されているかどうかを確認する
-      if current_user.menus.exists?(date: Date.parse(date))
-        next # 登録済みの場合はスキップする
-      end
-
-      # ランダムに1つの料理名を取得する
-      dish = Dish.order(Arel.sql('RANDOM()')).first
-
-      # 献立を保存する
-      menu = current_user.menus.build(
-        date: Date.parse(date),
-        dish: dish,
-      )
-      menu.save
+      create_menu_for_date(date)
     end
 
     redirect_to menus_path
+  end
+
+  def create_menu_for_date(date)
+    # すでに同じ日付が登録されているかどうかを確認する
+    return if current_user.menus.exists?(date: date)
+
+    # ランダムに1つの料理名を取得する
+    dish = Dish.order(Arel.sql('RANDOM()')).first
+
+    # 献立を保存する
+    menu = current_user.menus.build(
+      date: date,
+      dish: dish,
+    )
+    menu.save
   end
 
   def edit
