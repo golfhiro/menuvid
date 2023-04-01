@@ -2,8 +2,6 @@ class DishesController < ApplicationController
   before_action :require_login
   before_action :authenticate_admin
 
-  require 'google/apis/youtube_v3'
-
   def new
     @dish = Dish.new
     @dishes = Dish.all
