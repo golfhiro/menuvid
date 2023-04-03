@@ -1,0 +1,19 @@
+<% content_for(:title, t('.title')) %>
+<div class="bg-gray-100 py-6">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8"><%= t('.title') %></h1>
+    <%= form_with model: @user, url: profile_path, local: true do |f| %>
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div class="mb-4">
+          <%= f.label :email, class: "block text-gray-700 font-semibold mb-2" %>
+          <%= f.email_field :email, class: "form-input w-full py-2 px-4 rounded-lg border-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-400", placeholder: "Your email address" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :name, class: "block text-gray-700 font-semibold mb-2" %>
+          <%= f.text_field :name, class: "form-input w-full py-2 px-4 rounded-lg border-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-400", placeholder: "Your name" %>
+        </div>
+        <%= f.submit "更新", class: 'btn btn-primary btn-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>
