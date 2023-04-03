@@ -52,15 +52,15 @@ gem "tailwindcss-rails"
 
 gem 'google-api-client', '~> 0.11'
 
-gem 'simple_calendar'
-
-gem 'ransack'
-gem 'kaminari'
-gem 'enum_help'
-
 gem 'jquery-rails'
 
+#管理画面
 gem "administrate"
+
+#Lineログイン
+# gem 'omniauth-line'
+# gem 'omniauth-rails_csrf_protection'
+# gem 'dotenv-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
