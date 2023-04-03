@@ -5,10 +5,7 @@ Rails.application.routes.draw do
     resources :menus
     resources :dishes
 
-    root to: "videos#index"
-    # get 'login', to: 'sessions#new'
-    # post 'login', to: 'sessions#create'
-    # delete 'logout', to: 'sessions#destroy'
+    root to: "users#index"
     end
 
   root "tops#index"
@@ -32,4 +29,6 @@ Rails.application.routes.draw do
       get 'search_videos'
     end
   end
+
+  resource :profile, only: %i[show edit update]
 end
