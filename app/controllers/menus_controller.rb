@@ -1,6 +1,19 @@
 class MenusController < ApplicationController
   def index
-    @menus = current_user.menus.this_week
+    #今週の献立
+    @this_week_menus = current_user.menus.this_week
+  end
+
+  def last_week
+    @last_week_menus = current_user.menus.last_week
+  end
+
+  def two_weeks_ago
+    @two_weeks_ago_menus = current_user.menus.two_weeks_ago
+  end
+
+  def three_weeks_ago
+    @three_weeks_ago_menus = current_user.menus.three_weeks_ago
   end
 
   def create_weekly_menu
