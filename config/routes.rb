@@ -21,7 +21,13 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
-  resources :menus, only: [:index, :edit, :update]
+  resources :menus, only: [:index, :edit, :update] do
+    collection do
+      get "last_week"
+      get "two_weeks_ago"
+      get "three_weeks_ago"
+    end
+  end
   post 'menus/create_weekly_menu', to: 'menus#create_weekly_menu', as: 'create_weekly_menu'
 
   resources :dishes do
