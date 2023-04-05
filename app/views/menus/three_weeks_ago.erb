@@ -1,14 +1,14 @@
+  <% if @three_weeks_ago_menus.present? %>
 <%# 献立一覧の親要素を追加 %>
 <div class="p-4">
   <div class="flex justify-center mb-4">
-    <h1 class="text-4xl font-bold">3週間前の献立</h1>
+        <h1 class="text-4xl font-bold"><%= @three_weeks_ago_menus.first.date.strftime('%-m/%-d') %>~<%= @three_weeks_ago_menus.last.date.strftime('%-m/%-d') %>（3週間前の献立）</h1>
   </div>
   <div class="flex justify-between mb-4">
     <%= link_to '今週', menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
     <%= link_to '先々週', two_weeks_ago_menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
   </div>
 
-  <% if @three_weeks_ago_menus.present? %>
     <div class="grid grid-cols-4 gap-4">
       <% @three_weeks_ago_menus.each do |menu| %>
         <%# 献立のカードを追加 %>
@@ -33,7 +33,7 @@
     </div>
   <% else %>
     <div class="flex flex-col items-center justify-center h-screen ">
-      <h1 class="text-4xl mt-10 mb-8">献立は作成していないです</h1>
+      <h1 class="text-4xl mt-10 mb-8">3週間前の献立は作成していないようです。。</h1>
     </div>
   <% end %>
   <div class="flex justify-between mb-4">
