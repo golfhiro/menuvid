@@ -1,43 +1,45 @@
 <%# 献立一覧の親要素を追加 %>
-<div class="p-4">
-  <div class="flex justify-center mb-4">
-    <h1 class="text-4xl font-bold">今週の献立</h1>
-  </div>
+<% if @this_week_menus.present? %>
+  <div class="p-4">
+    <div class="flex justify-center mb-4">
+      <h1 class="text-4xl font-bold"><%= @this_week_menus.first.date.strftime('%-m/%-d')%>~<%= @this_week_menus.last.date.strftime('%-m/%-d') %>（今週の献立）</h1>
+    </div>
+      <%= link_to '先週', last_week_menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
+
+      <div class="grid grid-cols-4 gap-4">
+        <% @this_week_menus.each do |menu| %>
+          <%# 献立のカードを追加 %>
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden w-72">
+            <%# 日付を表示 %>
+            <div class="p-4 bg-gray-200">
+              <h3 class="text-xl font-semibold text-center"><%= menu.date.strftime('%-m/%-d (%a)') %></h3>
+            </div>
+            <%# 動画を表示 %>
+            <div class="p-4 relative" style="max-width: 600px; margin: 0 auto;">
+              <div class="w-full h-0" style="padding-bottom: 56.25%;">
+                <iframe class="absolute inset-0 w-full h-full object-cover object-center" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder="0" allow="fullscreen" style="top: 20px;"></iframe>
+              </div>
+            </div>
+            <%# 変更ボタンを表示 %>
+            <div class="p-4">
+              <div class="p-4 flex justify-center">
+                <%= link_to '変更する', edit_menu_path(menu.id), class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+      </div>
     <%= link_to '先週', last_week_menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
-
-  <% if @this_week_menus.present? %>
-    <div class="grid grid-cols-4 gap-4">
-      <% @this_week_menus.each do |menu| %>
-        <%# 献立のカードを追加 %>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden w-72">
-          <%# 日付を表示 %>
-          <div class="p-4 bg-gray-200">
-            <h3 class="text-xl font-semibold text-center"><%= menu.date.strftime('%-m/%-d (%a)') %></h3>
-          </div>
-          <%# 動画を表示 %>
-          <div class="p-4 relative" style="max-width: 600px; margin: 0 auto;">
-            <div class="w-full h-0" style="padding-bottom: 56.25%;">
-              <iframe class="absolute inset-0 w-full h-full object-cover object-center" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder="0" allow="fullscreen" style="top: 20px;"></iframe>
-            </div>
-          </div>
-          <%# 変更ボタンを表示 %>
-          <div class="p-4">
-            <div class="p-4 flex justify-center">
-              <%= link_to '変更する', edit_menu_path(menu.id), class: "btn btn-primary" %>
-            </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="flex flex-col items-center justify-center h-screen ">
-      <h1 class="text-4xl mt-10 mb-8">献立がないようです。</h1>
-      <%= form_with url: create_weekly_menu_path, method: :post, local: false do |f| %>
-        <%= f.button '献立を作ってみる!',
-          class: "btn btn-primary btn-lg hover:bg-yellow-400 active:bg-yellow-500",
-          style: "background-color: orange;" %>
-      <% end %>
-    </div>
-  <% end %>
-  <%= link_to '先週', last_week_menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
-
-</div>
+<% else %>
+      <div class="flex flex-col items-center justify-center h-screen ">
+        <h1 class="text-4xl mt-10 mb-8">今週の献立は作成していないようです。。</h1>
+        <%= form_with url: create_weekly_menu_path, method: :post, local: false do |f| %>
+          <%= f.button '献立を作ってみる!',
+            class: "btn btn-primary btn-lg hover:bg-yellow-400 active:bg-yellow-500",
+            style: "background-color: orange;" %>
+        <% end %>
+      </div>
+      <div class="">
+        <%= link_to '先週', last_week_menus_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base ml-10 mx-5 ", style: "background-color: orange !important" %>
+      </div>
+  </div>
+<% end %>
