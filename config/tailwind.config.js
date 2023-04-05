@@ -1,24 +1,19 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   content: [
-    './public/*.html',
-    // './app/helpers/**/*.rb',
-    // './app/javascript/**/*.js',
-    // './app/views/**/*.{erb,haml,html,slim}',
     "../myapp/**/*.{html.erb, html, js}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      extend: {
+        colors: {
+        },
       },
     },
-  },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
     require('daisyui'),
-  ]
+  ],
+  daisyui: {
+    themes: [
+      "bumblebee"
+    ],
+  },
 }
