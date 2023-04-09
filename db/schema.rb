@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_073140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+    t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
   create_table "dishes", force: :cascade do |t|
