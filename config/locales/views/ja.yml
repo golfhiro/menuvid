@@ -45,7 +45,3 @@ ja:
       title: パスワードリセット申請
     edit:
       title: パスワードリセット
-  oauths:
-      callback:
-        login_success: '%{item}でログインしました'
-        login_failed: '%{item}でログインできませんでした'
