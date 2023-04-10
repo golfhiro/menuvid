@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   get '/guest_login', to: 'sessions#guest_login'
 
+  post 'oauth/callback', to: 'oauths#callback'
+  get 'oauth/callback', to: 'oauths#callback'
+  get 'oauths/oauth', to: 'oauths#oauth', as: :auth_at_provider
+
   resources :password_resets, only: %i[new create edit update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
