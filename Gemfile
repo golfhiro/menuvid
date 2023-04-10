@@ -57,20 +57,15 @@ gem 'jquery-rails'
 #管理画面
 gem "administrate"
 
+#Lineログイン
+# gem 'omniauth-line'
+# gem 'omniauth-rails_csrf_protection'
+# gem 'dotenv-rails'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'
   gem 'pry-rails'
-  # Code analize
-  gem 'bullet'
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
-
 end
 
 group :development do
