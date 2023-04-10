@@ -1,0 +1,12 @@
+{
+  "name": "menu_vid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/golfhiro/menu_vid.git",
+  "author": "golfhiro <hiroki5118@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "tom-select": "^2.2.2"
+  }
+}

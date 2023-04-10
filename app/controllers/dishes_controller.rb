@@ -7,7 +7,7 @@ class DishesController < ApplicationController
     @dishes = Dish.all
   end
 
-  def search_videos
+def search_videos
     @dish = Dish.find(params[:dish_id])
 
     Video.search_by_dish(@dish)
