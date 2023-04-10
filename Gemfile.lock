@@ -76,11 +76,15 @@ GEM
       kaminari (>= 1.0)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.3)
     capybara (3.38.0)
       addressable
@@ -105,6 +109,7 @@ GEM
       reline (>= 0.3.1)
     declarative (0.0.20)
     deep_merge (1.2.2)
+    diff-lcs (1.5.0)
     dockerfile-rails (1.2.5)
       rails
     dry-configurable (1.0.1)
@@ -140,6 +145,13 @@ GEM
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -192,6 +204,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    json (2.6.3)
     jwt (2.7.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -258,6 +271,9 @@ GEM
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
     os (1.1.4)
+    parallel (1.22.1)
+    parser (3.2.2.0)
+      ast (~> 2.4.1)
     pg (1.4.6)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -303,6 +319,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.7.0)
     reline (0.3.2)
@@ -313,6 +330,48 @@ GEM
       uber (< 0.2.0)
     retriable (3.1.2)
     rexml (3.2.5)
+    rspec-core (3.12.1)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
+    rubocop (1.49.0)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.2.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.28.0)
+      parser (>= 3.2.1.0)
+    rubocop-capybara (2.17.1)
+      rubocop (~> 1.41)
+    rubocop-performance (1.17.1)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.19.0)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.19.0)
+      rubocop (~> 1.33)
+      rubocop-capybara (~> 2.17)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -323,7 +382,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    select2-rails (4.0.13)
     selectize-rails (0.12.6)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -367,6 +425,8 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
+    unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     version_gem (1.1.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -394,11 +454,14 @@ PLATFORMS
 DEPENDENCIES
   administrate
   bootsnap
+  bullet
   capybara
   config
   cssbundling-rails
   debug
   dockerfile-rails (>= 1.2)
+  factory_bot_rails
+  faker
   google-api-client (~> 0.11)
   importmap-rails
   jbuilder
@@ -410,8 +473,12 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
+  rspec-rails
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   sassc-rails
-  select2-rails
   selenium-webdriver
   sorcery
   sprockets-rails
