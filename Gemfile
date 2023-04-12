@@ -54,6 +54,8 @@ gem 'google-api-client', '~> 0.11'
 
 gem 'jquery-rails'
 
+gem "simple_calendar", "~> 2.4"
+
 #管理画面
 gem "administrate"
 
