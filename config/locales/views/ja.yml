@@ -5,6 +5,7 @@ ja:
     logout: 'ログアウト'
     submit: '送信'
     update: '更新'
+    edit: '編集'
 
     message:
       require_login: 'ログインしてください'
@@ -49,3 +50,6 @@ ja:
         callback:
           login_success: '%{item}でログインしました'
           login_failed: '%{item}でログインできませんでした'
+  simple_calendar:
+      previous: "<<"
+      next: ">>"
