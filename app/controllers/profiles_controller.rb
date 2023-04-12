@@ -1,7 +1,9 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
-  def show;end
+  def show
+    @current_user_menus = current_user.menus
+  end
 
   def edit;end
 

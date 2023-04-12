@@ -16,6 +16,12 @@
         </table>
         <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary' %>
       </div>
+      <%= month_calendar events: @current_user_menus  do |date, menus| %>
+        <%= date %>
+        <% menus.each do |menu| %>
+          <%= menu.dish.name %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -10,4 +10,8 @@ class Menu < ApplicationRecord
   scope :two_weeks_ago, -> { where(date: Date.today.prev_week.prev_week.beginning_of_week..Date.today.prev_week.prev_week.end_of_week).includes(:dish).order(date: :asc) }
 
   scope :three_weeks_ago, -> { where(date: Date.today.prev_week.prev_week.prev_week.beginning_of_week..Date.today.prev_week.prev_week.prev_week.end_of_week).includes(:dish).order(date: :asc) }
+
+  def start_time
+    self.date
+  end
 end
