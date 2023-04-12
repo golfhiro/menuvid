@@ -1,3 +1,2 @@
 sorcery:
-  line_callback_url: 'https://menuvid.fly.dev/oauth/callback?provider=line
-/oauth/callback?provider=line'
+  line_callback_url: 'https://menuvid.fly.dev/oauth/callback?provider=line/oauth/callback?provider=line'
