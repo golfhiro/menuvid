@@ -35,9 +35,7 @@ Rails.application.routes.draw do
   post 'menus/create_weekly_menu', to: 'menus#create_weekly_menu', as: 'create_weekly_menu'
 
   resources :dishes do
-    collection do
-      get 'search_videos'
-    end
+    get 'search_videos', on: :collection
   end
 
   resource :profile, only: %i[show edit update]
