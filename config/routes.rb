@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
   post 'menus/create_weekly_menu', to: 'menus#create_weekly_menu', as: 'create_weekly_menu'
 
-  resources :dishes do
+  resources :videos do
     get 'search_videos', on: :collection
   end
 
