@@ -6,5 +6,6 @@ class CreateDishGenreTags < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :dish_genre_tags, [:dish_id, :genre_tag_id], unique: true
   end
 end

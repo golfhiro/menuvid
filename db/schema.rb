@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_053709) do
     t.bigint "genre_tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dish_id", "genre_tag_id"], name: "index_dish_genre_tags_on_dish_id_and_genre_tag_id", unique: true
     t.index ["dish_id"], name: "index_dish_genre_tags_on_dish_id"
     t.index ["genre_tag_id"], name: "index_dish_genre_tags_on_genre_tag_id"
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_053709) do
     t.bigint "ingredient_tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dish_id", "ingredient_tag_id"], name: "index_dish_ingredient_tags_on_dish_id_and_ingredient_tag_id", unique: true
     t.index ["dish_id"], name: "index_dish_ingredient_tags_on_dish_id"
     t.index ["ingredient_tag_id"], name: "index_dish_ingredient_tags_on_ingredient_tag_id"
   end
