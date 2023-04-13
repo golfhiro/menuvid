@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_104557) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_053709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_104557) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "dish_genre_tags", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "genre_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_dish_genre_tags_on_dish_id"
+    t.index ["genre_tag_id"], name: "index_dish_genre_tags_on_genre_tag_id"
+  end
+
+  create_table "dish_ingredient_tags", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "ingredient_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_dish_ingredient_tags_on_dish_id"
+    t.index ["ingredient_tag_id"], name: "index_dish_ingredient_tags_on_ingredient_tag_id"
+  end
+
   create_table "dishes", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genre_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredient_tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +96,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_104557) do
     t.index ["dish_id"], name: "index_videos_on_dish_id"
   end
 
+  add_foreign_key "dish_genre_tags", "dishes"
+  add_foreign_key "dish_genre_tags", "genre_tags"
+  add_foreign_key "dish_ingredient_tags", "dishes"
+  add_foreign_key "dish_ingredient_tags", "ingredient_tags"
   add_foreign_key "menus", "dishes"
   add_foreign_key "menus", "users"
   add_foreign_key "videos", "dishes"
