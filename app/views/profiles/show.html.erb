@@ -1,32 +1,46 @@
 <div class="bg-gray-50 py-10">
   <div class="container mx-auto px-4">
     <h1 class="text-4xl font-bold text-center mb-10"><%= t('.title') %></h1>
-      <div class="flex flex-col md:flex-row items-start justify-between bg-white rounded-lg shadow-lg p-8">
-        <div class="md:w-2/3">
-          <h1 class="font-bold mb-5">プロフィール</h1>
-          <table class="table-auto mb-4">
-            <tr>
-              <td class="px-4 py-2 text-gray-600 font-bold"><%= User.human_attribute_name(:email) %></td>
-              <td class="px-4 py-2 text-gray-800"><%= current_user.email %></td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 text-gray-600 font-bold"><%= User.human_attribute_name(:name) %></td>
-              <td class="px-4 py-2 text-gray-800"><%= current_user.name %></td>
-            </tr>
-          </table>
-          <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary' %>
-        </div>
-
-        <%# 献立カレンダー %>
-        <div>
-          <h1 class="font-bold mb-5"><%= @current_user.name %>さんの献立カレンダー</h1>
-            <%= month_calendar partial: 'simple_calendar/month_calendar', events: @current_user_menus  do |date, menus| %>
-              <%= date.to_s.slice(8, 2) %><br>
-              <% menus.each do |menu| %>
-                <%= truncate(menu.dish.name, length: 10) %>
-              <% end %>
-            <% end %>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h1 class="font-bold mb-5">プロフィール</h1>
+        <table class="table-fixed mb-4">
+          <tr>
+            <td class="w-1/4 px-4 py-2 text-gray-600 font-bold"><%= User.human_attribute_name(:email) %></td>
+            <td class="w-3/4 px-4 py-2 text-gray-800"><%= current_user.email %></td>
+          </tr>
+          <tr>
+            <td class="w-1/4 px-4 py-2 text-gray-600 font-bold"><%= User.human_attribute_name(:name) %></td>
+            <td class="w-3/4 px-4 py-2 text-gray-800"><%= current_user.name %></td>
+          </tr>
+        </table>
+        <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary' %>
       </div>
+      <div class="bg-white rounded-lg shadow-lg mt-20">
+        <h1 class="font-bold mb-5"><%= @current_user.name %>さんの献立カレンダー</h1>
+        <%= month_calendar partial: 'simple_calendar/month_calendar', events: @current_user_menus, class: 'overflow-auto' do |date, menus| %>
+          <div class="flex items-center justify-between border-b border-gray-200 py-3">
+            <div class="flex items-center">
+              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mr-2"><%= date.to_s.slice(8, 2) %></div>
+              <div>
+                <% if menus.present? %>
+                  <% menus.each do |menu| %>
+                    <p><%= truncate(menu.dish.name, length: 10) %></p>
+                    <% if menu.dish.genre_tags.first && menu.dish.genre_tags.first.name.present? %>
+                      <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full mr-2"><%= menu.dish.genre_tags.first.name %></span>
+                    <% end %>
+                    <% if menu.dish.ingredient_tags.first && menu.dish.ingredient_tags.first.name.present? %>
+                      <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full"><%= menu.dish.ingredient_tags.first.name %></span>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <p class="text-gray-500">献立がありません</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,30 @@
+<h1 class="text-xl font-bold mb-4">Edit Dish</h1>
+
+<%= form_with model: @dish, url: dish_path(@dish), method: :patch do |f| %>
+  <div class="mb-4">
+    <%= f.label :name, class: "block text-gray-700 font-bold mb-2" %>
+    <%= f.text_field :name, class: "form-input mt-1 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :genre_tag_ids, class: "block text-gray-700 font-bold mb-2" %>
+    <% @genre_tags.each do |genre_tag| %>
+      <label class="inline-flex items-center">
+        <%= check_box_tag "dish[genre_tag_ids][]", genre_tag.id, @dish.genre_tag_ids.include?(genre_tag.id), class: "form-checkbox h-5 w-5 text-indigo-600" %>
+        <%= label_tag "dish_genre_tag_#{genre_tag.id}", genre_tag.name, class: "ml-2 text-gray-700 font-bold" %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :ingredient_tag_ids, class: "block text-gray-700 font-bold mb-2" %>
+    <% @ingredient_tags.each do |ingredient_tag| %>
+      <label class="inline-flex items-center">
+        <%= check_box_tag "dish[ingredient_tag_ids][]", ingredient_tag.id, @dish.ingredient_tag_ids.include?(ingredient_tag.id), class: "form-checkbox h-5 w-5 text-indigo-600" %>
+        <%= label_tag "dish_ingredient_tag_#{ingredient_tag.id}", ingredient_tag.name, class: "ml-2 text-gray-700 font-bold" %>
+      </label>
+    <% end %>
+  </div>
+
+  <%= f.submit "Update", class: "btn btn-prymary" %>
+<% end %>

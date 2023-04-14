@@ -1,0 +1,10 @@
+<h1 class="text-4xl font-bold mb-6 text-center">Youtube APIを叩く</h1>
+  <%= link_to '一覧へ戻る', action: 'index', class: "mb-4" %>
+  <%= form_with(url: search_videos_videos_path, method: :get, local: true, class: "w-full md:w-1/2") do |form| %>
+    <div class="form-group">
+      <%= form.select :dish_id, options_for_select(@dishes.map {|d| [d.name, d.id]}), {}, {class: "select select-bordered w-full"} %>
+      <div class="form-group mt-6">
+        <%= form.submit '動画を保存する', class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+  <% end %>

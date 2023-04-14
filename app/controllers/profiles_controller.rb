@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
   def show
-    @current_user_menus = current_user.menus
+    @current_user_menus = current_user.menus.includes(dish: [:ingredient_tags, :genre_tags])
   end
 
   def edit;end
