@@ -1,0 +1,21 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <% @dishes.each do |dish| %>
+    <div class="bg-white rounded-lg shadow-lg">
+      <%= link_to edit_dish_path(dish) do %>
+        <div class="p-4">
+          <div class="font-bold text-xl mb-2"><%= dish.name %></div>
+          <div class="text-gray-700 text-base">
+            <% if dish.genre_tags.present? %>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= dish.genre_tags.first.name %></span>
+            <% end %>
+            <% if dish.ingredient_tags.present? %>
+              <% dish.ingredient_tags.each do |tag| %>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%= tag.name %></span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
