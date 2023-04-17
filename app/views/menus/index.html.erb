@@ -1,47 +1,74 @@
 <%# 献立一覧の親要素を追加 %>
-<% if @this_week_menus.present? %>
+<% if @week_menus.present? %>
   <div class="p-4">
     <div class="flex justify-center mb-4">
-      <h1 class="text-4xl font-bold"><%= @this_week_menus.first.date.strftime('%-m/%-d')%>~<%= @this_week_menus.last.date.strftime('%-m/%-d') %>（今週の献立）</h1>
+      <h1 class="text-4xl font-bold"><%= @week_menus.first.date.strftime('%-m/%-d')%>~<%= @week_menus.last.date.strftime('%-m/%-d') %>の献立</h1>
     </div>
     <div class="mb-4">
-      <%= link_to '先週', last_week_menus_path, class: "btn btn-outline" %>
+      <div class="mb-4 flex justify-center">
+        <%= link_to '3週間前', menus_path(date: Date.today.prev_week.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '先々週', menus_path(date: Date.today.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '先週', menus_path(date: Date.today.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '今週', menus_path(date: Date.today), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '来週', menus_path(date: Date.today.next_week), class: "btn btn-outline rounded-full flex-1" %>
+      </div>
     </div>
-      <div class="grid grid-cols-4 gap-4">
-        <% @this_week_menus.each do |menu| %>
-          <%# 献立のカードを追加 %>
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden w-72">
-            <%# 日付を表示 %>
-            <div class="p-4 bg-gray-200">
-              <h3 class="text-xl font-semibold text-center"><%= menu.date.strftime('%-m/%-d (%a)') %></h3>
-            </div>
-            <%# 動画を表示 %>
-            <div class="p-4 relative" style="max-width: 600px; margin: 0 auto;">
-              <div class="w-full h-0" style="padding-bottom: 56.25%;">
-                <iframe class="absolute inset-0 w-full h-full object-cover object-center" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder="0" allow="fullscreen" style="top: 20px;"></iframe>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <% @week_menus.each do |menu| %>
+        <%# 献立のカードを追加 %>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <%# 日付を表示 %>
+          <div class="p-4 bg-gray-200">
+            <h3 class="text-xl font-semibold text-center"><%= menu.date.strftime('%-m/%-d (%a)') %></h3>
+          </div>
+          <%# 動画を表示 %>
+          <div class="p-4 relative" style="padding-bottom: 56.25%;">
+            <iframe class="absolute inset-0 w-full h-full object-cover object-center" src="https://www.youtube.com/embed/<%= menu.dish.video.video_id %>" frameborder="0" allow="fullscreen"></iframe>
+          </div>
+          <%# 変更ボタンを表示 %>
+          <div class="p-4 bg-white shadow-md rounded-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex flex-col">
+                <h3 class="text-lg font-semibold text-gray-800"><%= menu.dish.name %></h3>
+                <% if menu.dish.present? && menu.dish.genre_tags.present? %>
+                  <span class="text-sm font-medium text-gray-500 "><%= menu.dish.genre_tags.first.name %></span>
+                <% end %>
+                <% if menu.dish.ingredient_tags.first && menu.dish.ingredient_tags.first.name.present? %>
+                  <div class="mt-1">
+                    <% menu.dish.ingredient_tags.each do |tag| %>
+                      <span class="inline-block px-2 py-1 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full mr-2 mb-2"><%= tag.name %></span>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
+              <%= link_to '変更する', edit_menu_path(menu.id), class: "btn btn-primary rounded-full"%>
             </div>
-            <%# 変更ボタンを表示 %>
-            <div class="p-4">
-              <div class="p-4 flex justify-center">
-                <%= link_to '変更する', edit_menu_path(menu.id), class: "btn btn-primary" %>
-              </div>
-            </div>
-          <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="my-4">
+      <div class="flex justify-center space-x-2">
+        <%= link_to '3週間前', menus_path(date: Date.today.prev_week.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '先々週', menus_path(date: Date.today.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '先週', menus_path(date: Date.today.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '今週', menus_path(date: Date.today), class: "btn btn-outline rounded-full flex-1" %>
+        <%= link_to '来週', menus_path(date: Date.today.next_week), class: "btn btn-outline rounded-full flex-1" %>
       </div>
-      <div class="m-4 p-4">
-        <%= link_to '先週', last_week_menus_path, class: "btn btn-outline" %>
-      </div>
+    </div>
+  </div>
 <% else %>
-      <div class="flex flex-col items-center justify-center h-screen ">
-        <h1 class="text-4xl mt-10 mb-8">今週の献立は作成していないようです。。</h1>
-        <%= form_with url: create_weekly_menu_path, method: :post, local: false do |f| %>
-        <%# <%= f.button '献立を作ってみる!', class: "btn btn-primary btn-lg hover:bg-yellow-400 active:bg-yellow-500 bg-orange"%>
-        <%= f.button '献立を作ってみる!', class: "btn btn-outline btn-warning btn-lg"%>
-        <% end %>
-      </div>
-      <div class="mb-4">
-        <%= link_to '先週', last_week_menus_path, class: "btn btn-outline" %>
-      </div>
+  <div class="flex flex-col items-center justify-center h-screen ">
+    <h1 class="text-4xl mt-10 mb-8">献立を作成していないようです。</h1>
+    <%= form_with url: create_weekly_menu_path, method: :post, local: false do |f| %>
+      <%= f.button '献立を作ってみる!', class: "btn btn-primary btn-lg mb-10"%>
+    <% end %>
+  </div>
+  <div class="mb-4 flex justify-center">
+    <%= link_to '3週間前', menus_path(date: Date.today.prev_week.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+    <%= link_to '先々週', menus_path(date: Date.today.prev_week.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+    <%= link_to '先週', menus_path(date: Date.today.prev_week), class: "btn btn-outline rounded-full flex-1" %>
+    <%= link_to '今週', menus_path(date: Date.today), class: "btn btn-outline rounded-full flex-1" %>
+    <%= link_to '来週', menus_path(date: Date.today), class: "btn btn-outline rounded-full flex-1" %>
   </div>
 <% end %>

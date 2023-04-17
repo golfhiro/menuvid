@@ -3,7 +3,7 @@
   <header class="border-b mb-8">
     <div class="max-w-screen-2xl flex justify-between items-center px-4 md:px-8 mx-auto">
       <!-- logo - start -->
-      <a href="<%= menus_path %>" class="inline-flex items-center gap-2.5" aria-label="logo">
+      <a href="<%= menus_path(date: Date.today) %>" class="inline-flex items-center gap-2.5" aria-label="logo">
         <%= image_tag "logo.png", alt: "MenuVid", class: "h-6 md:h-8" %>
         <span class="text-orange-500 text-2xl md:text-3xl font-bold">MenuVid</span>
       </a>
@@ -23,7 +23,7 @@
             <label tabindex="0" class="btn btn-ghost rounded-btn"><svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/>
             </svg>Menu</label>
               <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                <li><%= link_to '献立を見る', menus_path,  class: "text-indigo-500 text-lg font-semibold" %></li>
+                <li><%= link_to '献立一覧', menus_path(date: Date.today), class: "text-indigo-500 text-lg font-semibold" %></li>
                 <li><%= link_to 'マイページ', profile_path,  class: "text-indigo-500 text-lg font-semibold" %></li>
                 <li><%= link_to 'Logout', logout_path, data: { turbo_method: :delete}, class: "text-indigo-500 text-lg font-semibold" %></li>
               </ul>

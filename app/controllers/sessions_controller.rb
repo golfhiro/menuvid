@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
-      redirect_back_or_to menus_path, success: t('.success')
+      redirect_back_or_to menus_path(date: Date.today), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
@@ -29,6 +29,6 @@ class SessionsController < ApplicationController
       )
     end
     auto_login(@guest_user)
-    redirect_to menus_path, success: 'ゲストとしてログインしました'
+    redirect_to menus_path(date: Date.today), success: 'ゲストとしてログインしました'
   end
 end

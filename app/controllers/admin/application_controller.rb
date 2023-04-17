@@ -10,7 +10,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to menus_path, warning: "管理者権限を持っていません" unless current_user.admin?
+      redirect_to menus_path(date: Date.today), warning: "管理者権限を持っていません" unless current_user.admin?
     end
 
     # Override this value to specify the number of elements to display at a time
