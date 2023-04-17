@@ -59,6 +59,14 @@ gem "simple_calendar", "~> 2.4"
 #管理画面
 gem "administrate"
 
+# LINE Messaging API SDK
+gem 'line-bot-api'
+
+# Active Job
+gem 'delayed_job_active_record'
+# cron
+gem 'whenever', require: false
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'
