@@ -44,3 +44,25 @@
     </div>
   </div>
 </div>
+
+<div class="flex flex-col items-center justify-center">
+  <h3 class="text-lg font-bold mb-2">LINE連携</h3>
+  <% if @oauth.present? %>
+    <div class="flex items-center mb-2">
+      <%= image_tag @current_user.picture_url, size: '50x50', class: "rounded-full mr-2" %>
+      <div class="text-sm">
+        <div><%= @current_user.line_name %></div>
+        <div class="text-gray-500">連携されています</div>
+      </div>
+    </div>
+    <% if @current_user.crypted_password.present? && @current_user.email.present? %>
+      <%= button_to 'LINE連携解除', oauth_path(@oauth.id), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+    <% end %>
+  <% else %>
+    <div class="text-center mb-4">
+      <p>LINEの連携をします。</p>
+      <p>下記手続きをすると、LINE宛に振り返りなどの通知を送信できるようになり、アプリにもLINEでログインができます。</p>
+    </div>
+    <%= link_to 'LINEでログイン', auth_at_provider_path(provider: :line), class: "btn btn-primary" %>
+  <% end %>
+</div>
