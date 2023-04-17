@@ -5,7 +5,7 @@ IngredientTag.find_or_create_by!(name: '挽肉')
 
 IngredientTag.find_or_create_by!(name: '白身魚')
 IngredientTag.find_or_create_by!(name: '赤身魚')
-IngredientTag.find_or_create_by!(name: '海鮮類(イカ、エビ、貝類など)')
+IngredientTag.find_or_create_by!(name: 'エビ')
 
 IngredientTag.find_or_create_by!(name: '豆腐')
 

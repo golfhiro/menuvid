@@ -47,9 +47,11 @@ ja:
     edit:
       title: パスワードリセット
   oauths:
-        callback:
-          login_success: '%{item}でログインしました'
-          login_failed: '%{item}でログインできませんでした'
+    callback:
+      login_success: '%{item}でログイン(連携)しました'
+      login_failed: '%{item}でログインできませんでした'
+    destroy:
+      destroyed: 'ログイン情報を削除しました'
   simple_calendar:
-      previous: "<<"
-      next: ">>"
+    previous: "<<"
+    next: ">>"

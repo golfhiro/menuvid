@@ -219,8 +219,8 @@ Rails.application.config.sorcery.configure do |config|
   config.line.scope = 'openid profile'
   config.line.bot_prompt = 'aggressive'
   config.line.user_info_mapping = {
-    name: 'displayName',
-    email: 'userId'
+    line_name: 'displayName',
+    picture_url: 'pictureUrl'
   }
 
   # For information about Discord API
