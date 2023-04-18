@@ -41,3 +41,6 @@ processes = []
 [[statics]]
   guest_path = "/myapp/public"
   url_prefix = "/"
+
+[processes]
+  app = "bin/rails fly:server"
