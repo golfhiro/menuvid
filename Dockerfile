@@ -3,7 +3,7 @@ FROM ruby:3.1.2
 ENV TZ Asia/Tokyo
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs && apt-get install -y vim
 
-ARG BUNDLER_VERSION=2.3.26
+ARG BUNDLER_VERSION=2.3.7
 ARG APP_NAME=menu_vid
 ARG RUBY_VERSION
 ARG BUNDLER_VERSION
@@ -13,6 +13,9 @@ ENV BUNDLE_DEPLOYMENT true
 ENV BUNDLE_WITHOUT development:test
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
+RUN mkdir /$APP_NAME
+WORKDIR /$APP_NAME
+RUN gem install bundler:$BUNDLER_VERSION
 
 # # Install yarn
 # RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
@@ -24,7 +27,6 @@ ENV RAILS_LOG_TO_STDOUT true
 # RUN apt-get update && apt-get install -y npm
 
 # 作業ディレクトリを指定
-ARG APP_NAME=menuvid
 COPY Gemfile /$APP_NAME/Gemfile
 COPY Gemfile.lock /$APP_NAME/Gemfile.lock
 COPY . /$APP_NAME/
