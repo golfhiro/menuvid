@@ -10,6 +10,6 @@
     "tom-select": "^2.2.2"
   },
   "scripts": {
-    "build:css": "NODE_ENV=production tailwindcss -i ./app/assets/stylesheets/application.css -o ./public/assets/application.css"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o"
   }
 }
