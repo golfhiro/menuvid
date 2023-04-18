@@ -67,6 +67,8 @@ gem 'delayed_job_active_record'
 # cron
 gem 'whenever', require: false
 
+gem 'config'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'
@@ -86,7 +88,6 @@ end
 group :development do
   gem "web-console"
   gem 'letter_opener_web'
-  gem 'config'
 end
 
 group :test do
