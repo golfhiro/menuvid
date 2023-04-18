@@ -1,4 +1,4 @@
-# require 'config'
+require 'config'
 # require 'rbconfig'
 Config.setup do |config|
   # Name of the constant exposing loaded settings
