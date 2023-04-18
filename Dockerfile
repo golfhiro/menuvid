@@ -28,7 +28,7 @@ ARG APP_NAME=menuvid
 COPY Gemfile /$APP_NAME/Gemfile
 COPY Gemfile.lock /$APP_NAME/Gemfile.lock
 COPY . /$APP_NAME/
-COPY tailwind.config.js /$APP_NAME/tailwind.config.js
+# COPY tailwind.config.js /$APP_NAME/tailwind.config.js
 
 # RUN mkdir /myapp
 # WORKDIR /myapp
