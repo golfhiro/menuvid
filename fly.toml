@@ -7,7 +7,7 @@ primary_region = "nrt"
 processes = []
 
 [env]
-  RAILS_ENV = "production"
+  RAILS_ENV = "development"
 
 [experimental]
   auto_rollback = true
@@ -41,6 +41,3 @@ processes = []
 [[statics]]
   guest_path = "/myapp/public"
   url_prefix = "/"
-
-[processes]
-  app = "bin/rails fly:server"
