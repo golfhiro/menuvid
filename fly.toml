@@ -7,7 +7,6 @@ primary_region = "nrt"
 processes = []
 
 [env]
-  RAILS_ENV = "production"
 
 [experimental]
   auto_rollback = true
