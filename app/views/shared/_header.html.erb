@@ -1,34 +1,13 @@
-<!-- hero - start -->
-<div class="bg-white pb-6 sm:pb-8 lg:pb-12">
-  <header class="border-b mb-8">
-    <div class="max-w-screen-2xl flex justify-between items-center px-4 md:px-8 mx-auto">
-      <!-- logo - start -->
-      <a href="<%= menus_path(date: Date.today) %>" class="inline-flex items-center gap-2.5" aria-label="logo">
-        <%= image_tag "logo.png", alt: "MenuVid", class: "h-6 md:h-8" %>
-        <span class="text-orange-500 text-2xl md:text-3xl font-bold">MenuVid</span>
-      </a>
-      <!-- logo - end -->
-
-      <!-- nav - start -->
-      <nav class="hidden lg:flex gap-12 2xl:ml-16">
-        <a href="#" class="text-indigo-500 text-lg font-semibold"></a>
-      </nav>
-      <!-- nav - end -->
-
-      <!-- buttons - start -->
-      <div class="flex sm:border-l border-r divide-x">
-        <div class="w-12 sm:w-20 md:w-24 h-12 sm:h-20 md:h-24 hidden sm:flex flex-col justify-center items-center hover:bg-gray-100 active:bg-gray-200 transition duration-100 gap-1.5">
-        <div class="w-12 sm:w-20 md:w-24 h-12 sm:h-20 md:h-24 hidden sm:flex flex-col justify-center items-center hover:bg-gray-100 active:bg-gray-200 transition duration-100 gap-1.5">
-          <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost rounded-btn"><svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/>
-            </svg>Menu</label>
-              <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                <li><%= link_to '献立一覧', menus_path(date: Date.today), class: "text-indigo-500 text-lg font-semibold" %></li>
-                <li><%= link_to 'マイページ', profile_path,  class: "text-indigo-500 text-lg font-semibold" %></li>
-                <li><%= link_to 'Logout', logout_path, data: { turbo_method: :delete}, class: "text-indigo-500 text-lg font-semibold" %></li>
-              </ul>
-          </div>
-        </div>
-      <!-- buttons - end -->
-    </div>
-  </header>
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <%= image_tag "logo.png", alt: "MenuVid", size: "60x60" %>
+    <a class="text-2xl normal-case font-bold">MenuVid</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li><%= link_to '献立一覧', menus_path(date: Date.today), class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
+      <li><%= link_to 'マイページ', profile_path,  class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
+      <li><%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete}, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
+    </ul>
+  </div>
+</div>
