@@ -1,10 +1,8 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[edit update]
 
   def show
     @current_user_menus = current_user.menus.includes(dish: [:ingredient_tags, :genre_tags])
-
-    @oauth = current_user.authentications.find_by(provider: 'line')
   end
 
   def edit;end
