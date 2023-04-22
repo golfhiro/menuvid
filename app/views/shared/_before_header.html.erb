@@ -5,8 +5,12 @@
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li> <%= link_to 'ログイン', login_path, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %>
-      <li><%= link_to '新規登録', new_user_path, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
+      <li>
+        <%= link_to t('defaults.login'), login_path, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %>
+      </li>
+      <li>
+        <%= link_to t('defaults.register'), new_user_path, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %>
+      </li>
     </ul>
   </div>
 </div>

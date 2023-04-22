@@ -54,7 +54,8 @@
 
   <div class="flex justify-center mt-6">
     <div class="border-r-2 border-gray-400 px-4">
-      <%= link_to 'LINE', auth_at_provider_path(provider: :line), class: "text-gray-600 hover:text-indigo-500 active:text-indigo-700 text-lg font-semibold transition duration-100" %>でログインしてみる！
-    </div>
+      <%= link_to auth_at_provider_path(provider: :line) do %>
+        <%= image_tag 'btn_login_base.png' %>
+      <% end %>
   </div>
 </div>
