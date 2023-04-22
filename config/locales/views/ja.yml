@@ -1,11 +1,16 @@
 ja:
   defaults:
     login: 'ログイン'
-    register: '登録'
+    register: '新規登録'
     logout: 'ログアウト'
     submit: '送信'
     update: '更新'
     edit: '編集'
+    mypage: 'マイページ'
+    menus: '献立一覧'
+    terms_of_use: "利用規約"
+    privacy_policy: "プライバシーポリシー"
+    contact: "お問い合わせ"
 
     message:
       require_login: 'ログインしてください'
@@ -48,7 +53,7 @@ ja:
       title: パスワードリセット
   oauths:
     callback:
-      login_success: '%{item}でログイン(連携)しました'
+      login_success: '%{item}でログインしました'
       login_failed: '%{item}でログインできませんでした'
     destroy:
       destroyed: 'ログイン情報を削除しました'

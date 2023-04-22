@@ -1,48 +1,48 @@
-<section class="min-h-screen relative flex flex-1 items-center justify-center overflow-hidden rounded-lg mb-10">
-  <%= image_tag "/pexels-dmitry-zvolskiy-2062426.jpg", width: "100%", height: "auto" %>
-  <div class="absolute inset-0 opacity-50">
-    <div class="relative flex flex-col items-center justify-center p-4 sm:max-w-xl z-10 h-full">
-      <h1 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl font-montserrat tracking-widest">あなたの献立を提案します</h1>
-      <p class="mb-8 font-bold font-montserrat text-lg md:text-2xl">MenuVidはYoutubeの料理動画で献立を作成してくれるサービスです。</p>
-        <%= link_to 'さっそく使ってみる！', login_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
+<div class="top-wrapper">
+  <section class="min-h-screen relative flex flex-1 items-center justify-center overflow-hidden rounded-lg mb-10">
+    <%= image_tag "/pexels-dmitry-zvolskiy-2062426.jpg", width: "100%", height: "auto" %>
+    <div class="absolute inset-0 opacity-50">
+      <div class="relative flex flex-col items-center justify-center p-4 sm:max-w-xl z-10 h-full">
+        <h3 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl font-montserrat tracking-widest">あなたの献立を</h3>
+        <h1 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl font-montserrat tracking-widest">提案します</h1>
+          <%= link_to 'さっそく使ってみる！', login_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
+      </div>
+    </div>
+  </section>
+  <div class="mt-20 pt-10 px-8 py-12 bg-gray-50 mb-10">
+    <div class="container">
+      <div class="mb-10 text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-10 border-b-4">MenuVid（メニュービッド）とは</h2>
+        <div class="mt-4 text-lg text-gray-600">
+          <p class="mb-3">「今日の晩御飯は何にしよう?」「この前は何を食べたっけ？」と毎日の献立を考えるのは大変じゃないですか？</p>
+          <p class="mb-3">MenuVidはそんなあなたの悩みを解決してくれます。</p>
+          <p class="mb-3">美味しいレシピがたくさん掲載されているYoutubeで、あなただけの献立を作成しましょう！</p>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-<div class="mt-20 pt-10 px-8 py-12 bg-gray-50 mb-10">
-  <div class="container">
-    <div class="mb-10 text-center">
-      <h2 class="text-4xl font-bold text-gray-900 mb-10 border-b-4">MenuVid（メニュービッド）とは</h2>
-      <div class="mt-4 text-lg text-gray-600">
-        <div class="mb-3">「今日の晩御飯は何にしよう?」「この前は何を食べたかな？」と毎日の献立を考えるのは大変じゃないですか？</div>
-        <div class="mb-3">MenuVidはそんなあなたの悩みを解決してくれます。</div>
-        <div class="mb-3">Youtubeには美味しいレシピがたくさんあります！</div>
-        <div class="mb-3">ぜひ、Youtube動画で献立を作成してみてください！！</div>
+<div class="container mx-auto bg-base-200">
+  <h2 class="text-2xl font-semibold text-gray-800 text-center pt-10 mb-8 ">MenuVidでできること</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="card">
+      <%= image_tag "menu.png", size: "60x60", class: "mx-auto mt-6" %>
+      <div class="card-body">
+        <h2 class="card-title mx-auto">1週間の献立を自動作成</h2>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag "calendar.png", size: "60x60", class: "mx-auto mt-6" %>
+      <div class="card-body">
+        <h2 class="card-title mx-auto">カレンダーで献立の履歴を確認</h2>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag "notice.png", size: "60x60", class: "mx-auto mt-6" %>
+      <div class="card-body">
+        <h2 class="card-title mx-auto">LINEに献立を通知</h2>
+        <p class="mx-auto">(通知機能はただいま準備中です) </p>
       </div>
     </div>
   </div>
 </div>
-<div class="bg-gray-100 py-8 mt-10">
-    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-8">MenuVidでできること</h2>
-    <div class="flex justify-between px-4">
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title mx-auto">1週間の献立を自動作成</h2>
-          <%= image_tag "menu.png", size: "60x60", class: "mx-auto" %>
-          <p>
-        </div>
-      </div>
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title mx-auto">カレンダーで献立の履歴を確認</h2>
-          <%= image_tag "calendar.png", size: "60x60", class: "mx-auto" %>
-        </div>
-      </div>
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title mx-auto">LINEに献立を通知</h2>
-          <%= image_tag "notice.png", size: "60x60", class: "mx-auto" %>
-          <p>(通知機能はただいま準備中です) </p>
-        </div>
-      </div>
-  </div>
 </div>
