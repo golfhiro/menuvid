@@ -1,13 +1,26 @@
-<div class="navbar bg-base-100">
-  <div class="flex-1">
-    <%= image_tag "logo.png", alt: "MenuVid", size: "60x60" %>
-    <a class="text-2xl normal-case font-bold">MenuVid</a>
+<header>
+  <div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <%= image_tag "logo.png", alt: "MenuVid", size: "60x60" %>
+      <a class="text-2xl normal-case font-bold">MenuVid</a>
+    </div>
+    <div class="navbar-end">
+      <div class="dropdown dropdown-hover dropdown-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-64">
+          <li>
+            <%= link_to t('defaults.menus'), menus_path(date: Date.today) %>
+          </li>
+          <li>
+            <%= link_to t('defaults.mypage'), profile_path %>
+          </li>
+          <li>
+            <%= link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete} %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li><%= link_to '献立一覧', menus_path(date: Date.today), class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
-      <li><%= link_to 'マイページ', profile_path,  class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
-      <li><%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete}, class: "hover:text-orange-500 active:text-orange-700 text-lg font-semibold transition duration-100" %></li>
-    </ul>
-  </div>
-</div>
+</header>
