@@ -66,17 +66,18 @@ Youtubeの料理動画で献立を作成するサービス
   - TailwindCSS
   - daisyUI
 - インフラ
-  - Fly.io
+  - Docker
   - PostgreSQL
+  - Fly.io
 - API
   - Youtube API
 
 ## スケジュール
 
-企画〜技術調査及び README〜ER 図作成：3/19 〆切</br>
-メイン機能実装：3/20 - 4/10</br>
-β 版を RUNTEQ 内リリース(MVP)：4/11 〆切</br>
-本番リリース：4/25
+企画〜技術調査及び README〜ER 図作成：2/12 〆切</br>
+メイン機能実装：2/12 - 3/31</br>
+β 版を RUNTEQ 内リリース(MVP)：4/1 〆切</br>
+本番リリース：5/1<br>
 
 ## 画面遷移図
 
