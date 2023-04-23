@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
 
   root "tops#index"
+  get 'terms', to: 'tops#terms'
+  get 'privacy', to: 'tops#privacy'
 
   resources :users
 
