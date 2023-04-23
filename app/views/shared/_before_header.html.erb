@@ -1,7 +1,7 @@
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <%= image_tag "logo.png", alt: "MenuVid", size: "60x60" %>
-    <a class="text-2xl normal-case font-bold">MenuVid</a>
+    <%= link_to (image_tag 'logo.png', alt: "MenuVid", size: "60x60"), menus_path(date: Date.today) %>
+    <%= link_to 'MenuVid', root_path, class: "text-2xl normal-case font-bold" %>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
