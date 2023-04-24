@@ -24,7 +24,7 @@ class MenusController < ApplicationController
   def create_menu_for_date(date)
     return if current_user.menus.exists?(date: date)
 
-    dish = Dish.order(Arel.sql('RANDOM()')).first
+    dish = Dish.order("RANDOM()").first
     current_user.menus.create(date: date, dish: dish)
   end
 
