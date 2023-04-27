@@ -8,16 +8,16 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: menu_vid_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: menu_vid_test
 
 production:
   <<: *default
-  database: menuvid_production
-  username: menuvid
+  database: menu_vid_production
+  username: menu_vid
   password: <%= ENV["MENUVID_DATABASE_PASSWORD"] %>
   url: <%= ENV['DATABASE_URL'] %>
 
