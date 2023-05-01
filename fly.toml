@@ -1,10 +1,15 @@
-# fly.toml file generated for menuvid on 2023-03-30T17:56:22+09:00
+# fly.toml app configuration file generated for menuvid on 2023-05-01T14:55:56+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
 app = "menuvid"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "nrt"
 processes = []
+
+[build]
 
 [env]
 
