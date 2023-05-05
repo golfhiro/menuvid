@@ -69,6 +69,9 @@ gem 'whenever', require: false
 
 gem 'config'
 
+#OGP
+gem "meta-tags"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'

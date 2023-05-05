@@ -8,14 +8,37 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: menu_vid_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: menu_vid_test
 
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
-  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
+  database: menu_vid_production
+  username: menu_vid
+  password: <%= ENV["MENUVID_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: db
+#   username: postgres
+#   password: password #これは、docker-compose.ymlで指定したパスワード
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+# development:
+#   <<: *default
+#   database: myapp_development
+
+# test:
+#   <<: *default
+#   database: myapp_test
+
+# production:
+#   <<: *default
+#   database: myapp_production
+#   username: myapp
+#   password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>

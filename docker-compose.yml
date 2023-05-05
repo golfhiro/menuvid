@@ -1,3 +1,30 @@
+# version: '3'
+# services:
+#   db:
+#     image: postgres
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: password
+#     volumes:
+#       - postgres_volume:/var/lib/postgresql/data
+#     ports:
+#       - '5432:5432'
+
+#   api:
+#     build: .
+#     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+#     volumes:
+#       - .:/myapp
+#     ports:
+#       - 3000:3000
+#     stdin_open: true
+#     tty: true
+#     depends_on:
+#       - db
+# volumes:
+#   postgres_volume:
+
+#上記のコードをリファクタリングしたコード。Dockerfileに合わせて変更
 version: '3'
 services:
   db:
@@ -8,10 +35,12 @@ services:
     volumes:
       - postgres_volume:/var/lib/postgresql/data
     ports:
-      - '3306:3306'
+      - '5432:5432'
 
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
