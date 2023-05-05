@@ -96,9 +96,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get update \
   && apt-get install -y yarn
 
-# Install npm
-# RUN apt-get update && apt-get install -y npm
-
 # 作業ディレクトリを指定
 WORKDIR /myapp
 
@@ -117,5 +114,5 @@ RUN chmod +x /usr/bin/entrypoint.sh
 
 # ENTRYPOINTとCMDを統合
 ENTRYPOINT ["entrypoint.sh"]
-# CMD ["rails", "server", "-b", "0.0.0.0"]
 CMD ["rails", "server", "-b", "0.0.0.0", "-e", "production"]
+# CMD ["rails", "server", "-b", "0.0.0.0"]
