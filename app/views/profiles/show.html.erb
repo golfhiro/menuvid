@@ -14,8 +14,9 @@
         </div>
       </div>
     </div>
+  </div>
       <%# カレンダー %>
-      <div class="bg-white rounded-lg shadow-lg mt-20 text-center ml-10">
+      <div class="bg-white rounded-lg shadow-lg mt-20 text-center ml-2">
         <h1 class="font-bold underline underline-offset-8 mb-5"><%= @current_user.name %>さんの献立カレンダー</h1>
           <%= month_calendar partial: 'simple_calendar/calendar', events: @current_user_menus, class: 'overflow-auto' do |date, menus| %>
             <div class="flex items-center justify-between border-b border-gray-200 py-3">
@@ -41,6 +42,4 @@
           <% end %>
         </div>
       </div>
-
-  </div>
 </div>
