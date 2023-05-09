@@ -1,81 +1,119 @@
-# syntax = docker/dockerfile:1
+# #applicationのディレクトリ名で置き換えてください
+# ARG APP_NAME=menu_vid
+# #使いたいrubyのimage名に置き換えてください
+# ARG RUBY_IMAGE=ruby:3.1.2
+# #使いたいnodeのversionに置き換えてください(`15.14.0`ではなく`15`とか`16`とかのメジャーバージョン形式で書いてください)
+# ARG NODE_VERSION='18'
+# #インストールするbundlerのversionに置き換えてください
+# ARG BUNDLER_VERSION=2.3.7
 
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.1.2
-FROM ruby:$RUBY_VERSION-slim as base
+# FROM $RUBY_IMAGE
+# ARG APP_NAME
+# ARG RUBY_VERSION
+# ARG NODE_VERSION
+# ARG BUNDLER_VERSION
 
-# Rails app lives here
-WORKDIR /rails
+# ENV RAILS_ENV production
+# ENV BUNDLE_DEPLOYMENT true
+# ENV BUNDLE_WITHOUT development:test
+# ENV RAILS_SERVE_STATIC_FILES true
+# ENV RAILS_LOG_TO_STDOUT true
 
-# Set production environment
-ENV RAILS_ENV="production" \
-    BUNDLE_WITHOUT="development:test" \
-    BUNDLE_DEPLOYMENT="1"
+# RUN mkdir /$APP_NAME
+# WORKDIR /$APP_NAME
 
-# Update gems and bundler
-RUN gem update --system --no-document && \
-    gem install -N bundler
+# # 別途インストールが必要なものがある場合は追加してください
+# RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+#   && wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+#   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+#   && apt-get update -qq \
+#   && apt-get install -y build-essential nodejs yarn
+
+# RUN gem install bundler:$BUNDLER_VERSION
+
+# COPY Gemfile /$APP_NAME/Gemfile
+# COPY Gemfile.lock /$APP_NAME/Gemfile.lock
+
+# RUN bundle install
+
+# COPY yarn.lock /$APP_NAME/yarn.lock
+# COPY package.json /$APP_NAME/package.json
+
+# COPY . /$APP_NAME/
+
+# RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile assets:clean \
+#   && yarn install --production --frozen-lockfile \
+#   && yarn cache clean \
+#   && rm -rf /$APP_NAME/node_modules /$APP_NAME/tmp/cache
+
+# COPY entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
+# EXPOSE 3000
+# CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
+#元々のDockerfile
+# FROM ruby:3.1.2
 
-# Install packages needed to build gems and node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl libpq-dev node-gyp pkg-config python-is-python3
+# ENV TZ Asia/Tokyo
+# RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs && apt-get install -y vim
 
-# Install JavaScript dependencies
-ARG NODE_VERSION=12.22.12
-ARG YARN_VERSION=1.22.19
-ENV PATH=/usr/local/node/bin:$PATH
-RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    npm install -g yarn@$YARN_VERSION && \
-    rm -rf /tmp/node-build-master
+# # # Install yarn
+# # RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+# #   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+# #   && apt-get update \
+# #   && apt-get install -y yarn
 
-# Install application gems
-COPY --link Gemfile Gemfile.lock ./
-RUN bundle install && \
-    bundle exec bootsnap precompile --gemfile && \
-    rm -rf ~/.bundle/ $BUNDLE_PATH/ruby/*/cache $BUNDLE_PATH/ruby/*/bundler/gems/*/.git
+# # # Install npm
+# # RUN apt-get update && apt-get install -y npm
 
-# Install node modules
-COPY --link package.json package-lock.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# # 作業ディレクトリを指定
+# RUN mkdir /myapp
+# WORKDIR /myapp
+# ADD Gemfile /myapp/Gemfile
+# ADD Gemfile.lock /myapp/Gemfile.lock
+# RUN bundle install
+# COPY . /myapp
 
-# Copy application code
-COPY --link . .
+# COPY entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
+# EXPOSE 3000
 
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
+# CMD ["rails", "server", "-b", "0.0.0.0"]
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
-RUN rm -f /rails/tmp/pids/server.pid
 
-# Final stage for app image
-FROM base
+#元々のコードをリファクタリング。これに合わせてdockerfile-compose.ymlを変更している
+FROM ruby:3.1.2
 
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+# ENV RAILS_ENV=production
+ENV TZ Asia/Tokyo
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs && apt-get install -y vim
 
-# Run and own the application files as a non-root user for security
-RUN useradd rails --home /rails --shell /bin/bash
-USER rails:rails
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+  && apt-get update \
+  && apt-get install -y yarn
 
-# Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build --chown=rails:rails /rails /rails
+# 作業ディレクトリを指定
+WORKDIR /myapp
 
-# Deployment options
-ENV RAILS_LOG_TO_STDOUT="1" \
-    RAILS_SERVE_STATIC_FILES="true"
+# ホストのGemfileとGemfile.lockをコンテナにコピー
+COPY Gemfile Gemfile.lock /myapp/
 
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# bundle installを実行
+RUN bundle install
 
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD ["./bin/rails", "server"]
+# ホストのカレントディレクトリをコンテナにコピー
+COPY . /myapp
+
+# entrypoint.shをコンテナ内の/usr/binにコピーし、実行権限を与える
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+
+# ENTRYPOINTとCMDを統合
+ENTRYPOINT ["entrypoint.sh"]
+# CMD ["rails", "server", "-b", "0.0.0.0", "-e", "production"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
