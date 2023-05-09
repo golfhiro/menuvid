@@ -1,9 +1,9 @@
 <% content_for(:title, t('.title')) %>
 <div class="top-wrapper">
   <section class="min-h-screen relative flex flex-1 items-center justify-center overflow-hidden rounded-lg mb-10">
-    <%= image_tag "/pexels-dmitry-zvolskiy-2062426.jpg", width: "100%", height: "auto" %>
-    <div class="absolute inset-0 opacity-50">
-      <div class="relative flex flex-col items-center justify-center p-4 sm:max-w-xl z-10 h-full">
+    <%= image_tag "/pexels-dmitry-zvolskiy-2062426.jpg", class: "mx-auto", width: "100%", height: "auto" %>
+    <div class="absolute inset-0">
+      <div class="relative flex flex-col items-center justify-center p-4 z-10 h-full">
         <h3 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl font-montserrat tracking-widest">あなたの献立を</h3>
         <h1 class="mb-8 text-center text-4xl font-bold sm:text-5xl md:mb-12 md:text-6xl font-montserrat tracking-widest">提案します</h1>
           <%= link_to 'さっそく使ってみる！', login_path, class: "inline-block rounded-lg bg-indigo-500 text-center text-sm font-semibold text-white py-3 px-8 outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base mb-5", style: "background-color: orange !important" %>
