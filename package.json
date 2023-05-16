@@ -1,8 +1,8 @@
 {
-  "name": "menu_vid",
+  "name": "menuvid",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/golfhiro/menu_vid.git",
+  "repository": "https://github.com/golfhiro/menuvid.git",
   "author": "golfhiro <hiroki5118@gmail.com>",
   "license": "MIT",
   "dependencies": {
