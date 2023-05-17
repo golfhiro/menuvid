@@ -1,19 +1,9 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
-  content: [
-    "../myapp/**/*.{html.erb, html, js}",
-  ],
+  content: ['./app/helpers/**/*.rb', './app/javascript/**/*.js', './app/views/**/*.{erb,haml,html,slim}'],
   theme: {
-      extend: {
-        colors: {
-        },
-      },
-    },
-  plugins: [
-    require('daisyui'),
-  ],
-  daisyui: {
-    themes: [
-      "bumblebee"
-    ],
+    extend: {},
   },
-}
+  plugins: [require('daisyui')],
+};
