@@ -9,20 +9,17 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get update \
   && apt-get install -y yarn
 
-# Install npm
-# RUN apt-get update && apt-get install -y npm
-
 # 作業ディレクトリを指定
-WORKDIR /menu_vid
+WORKDIR /menuvid
 
 # ホストのGemfileとGemfile.lockをコンテナにコピー
-COPY Gemfile Gemfile.lock /menu_vid//
+COPY Gemfile Gemfile.lock /menuvid//
 
 # bundle installを実行
 RUN bundle install
 
 # ホストのカレントディレクトリをコンテナにコピー
-COPY . /menu_vid/
+COPY . /menuvid/
 
 # entrypoint.shをコンテナ内の/usr/binにコピーし、実行権限を与える
 COPY entrypoint.sh /usr/bin/
