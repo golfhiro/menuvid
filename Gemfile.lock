@@ -491,7 +491,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  sassc-rails
   selenium-webdriver
   simple_calendar (~> 2.4)
   sorcery
