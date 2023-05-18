@@ -48,7 +48,8 @@ gem 'sorcery'
 gem 'rails-i18n'
 
 gem 'cssbundling-rails'
-gem "tailwindcss-rails"
+# gem "tailwindcss-rails"
+gem 'jsbundling-rails'
 
 gem 'google-api-client', '~> 0.11'
 
