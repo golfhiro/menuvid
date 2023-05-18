@@ -7,6 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
+    "daisyui": "^2.51.6",
+    "tailwind": "^4.0.0",
     "tom-select": "^2.2.2"
   },
   "scripts": {
