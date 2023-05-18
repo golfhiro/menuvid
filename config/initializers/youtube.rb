@@ -1,6 +1,5 @@
 require 'google/apis/youtube_v3'
 
-if Rails.application.credentials.youtube_api
   YOUTUBE_API_KEY = Rails.application.credentials.youtube_api[:youtube_api_key]
 
   Google::Apis::ClientOptions.default.application_name = 'MyApp'
@@ -9,4 +8,3 @@ if Rails.application.credentials.youtube_api
 
   YoutubeService = Google::Apis::YoutubeV3::YouTubeService.new
   YoutubeService.key = YOUTUBE_API_KEY
-end

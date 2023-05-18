@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    "../myapp/**/*.{html.erb, html, js}",
+    "../menuvid/**/*.{html.erb, html, js}",
   ],
   theme: {
       extend: {

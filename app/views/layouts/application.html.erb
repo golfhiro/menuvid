@@ -8,8 +8,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/daisyui@2.14.1/dist/full.css" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%# tailwind-railsの名残　一旦コメントアウト %>
+    <%# <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" %>
 
     <%= javascript_importmap_tags %>
 
@@ -17,8 +21,6 @@
 
     <%= display_meta_tags(default_meta_tags) %>
 
-    <%# Tom Select %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css">
   </head>
 
   <body>
