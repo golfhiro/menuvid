@@ -10,7 +10,6 @@ class VideosController < ApplicationController
 
   def search_videos
     Video.search_by_dish(@dish)
-    binding.pry
     redirect_to videos_path
   end
 
