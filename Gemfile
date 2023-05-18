@@ -58,7 +58,7 @@ gem 'jquery-rails'
 gem "simple_calendar", "~> 2.4"
 
 #管理画面
-gem "administrate"
+# gem "administrate"
 
 # LINE Messaging API SDK
 gem 'line-bot-api'
