@@ -48,7 +48,6 @@ gem 'sorcery'
 gem 'rails-i18n'
 
 gem 'cssbundling-rails'
-# gem "tailwindcss-rails"
 gem 'jsbundling-rails'
 
 gem 'google-api-client', '~> 0.11'
@@ -57,16 +56,8 @@ gem 'jquery-rails'
 
 gem "simple_calendar", "~> 2.4"
 
-#管理画面
-# gem "administrate"
-
 # LINE Messaging API SDK
 gem 'line-bot-api'
-
-# Active Job
-gem 'delayed_job_active_record'
-# cron
-gem 'whenever', require: false
 
 gem 'config'
 
