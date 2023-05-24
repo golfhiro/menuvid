@@ -9,11 +9,10 @@ services:
       - postgres_volume:/var/lib/postgresql/data
     ports:
       - '5432:5432'
-
   api:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/menuvid
@@ -23,5 +22,11 @@ services:
     tty: true
     depends_on:
       - db
+      - selenium_chrome
+
+  selenium_chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - 4444:4444
 volumes:
   postgres_volume:
