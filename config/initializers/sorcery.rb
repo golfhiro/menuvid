@@ -216,6 +216,7 @@ Rails.application.config.sorcery.configure do |config|
   config.line.key = Rails.application.credentials.dig(:line, :channel_id)
   config.line.secret = Rails.application.credentials.dig(:line, :channel_secret)
   config.line.callback_url = Settings.sorcery[:line_callback_url]
+  # config.line.callback_url = Settings.sorcery&.fetch(:line_callback_url, 'http://example.com/callback')
   config.line.scope = 'openid profile'
   config.line.bot_prompt = 'aggressive'
   config.line.user_info_mapping = {
