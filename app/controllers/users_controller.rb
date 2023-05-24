@@ -6,14 +6,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
-
   def new
     @user = User.new
-  end
-
-  def edit
   end
 
   def create
@@ -26,19 +20,6 @@ class UsersController < ApplicationController
       flash.now[:danger] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to user_url(@user), notice: "User was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to users_url, notice: "User was successfully destroyed."
   end
 
   private
