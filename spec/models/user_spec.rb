@@ -44,4 +44,26 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user).not_to be_valid
   end
+
+  it "パスワードがなければ無効な状態であること" do
+    user = User.new(
+      name: nil,
+      email: "hiroki@example.com",
+      password: "",
+      password_confirmation: "",
+    )
+    user.valid?
+    expect(user).not_to be_valid
+  end
+
+  it "パスワードと確認用パスワード不一致の場合には無効な状態であること" do
+    user = User.new(
+      name: nil,
+      email: "hiroki@example.com",
+      password: "password",
+      password_confirmation: "passwordpassword",
+    )
+    user.valid?
+    expect(user).not_to be_valid
+  end
 end
