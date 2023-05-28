@@ -8,15 +8,17 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     if @user = login_from(provider)
-      redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+      # redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+      redirect_back_or_to menus_path(date: Date.today), notice: "#{provider.titleize}でログインしました"
     else
       begin
         @user = create_from(provider)
         reset_session
         auto_login(@user)
-        redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+        # redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+        redirect_back_or_to menus_path(date: Date.today), notice: "#{provider.titleize}でログインしました"
       rescue StandardError
-        redirect_to root_path, alert: "#{provider.titleize}でのログインに失敗しました"
+        redirect_to login_path, alert: "#{provider.titleize}でのログインに失敗しました"
       end
     end
   end

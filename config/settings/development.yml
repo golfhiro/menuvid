@@ -1,4 +1,4 @@
 default_url_options:
   host: 'localhost:3000'
 sorcery:
-  line_callback_url: 'https://menuvid.fly.dev/oauth/callback?provider=line'
+  line_callback_url: 'https://www.menuvid.net/oauth/callback?provider=line'

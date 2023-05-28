@@ -6,17 +6,18 @@
     </span>
     <span class="bg-primary-500 h-1 w-20 block mx-auto"></span>
   </h1>
+  <!-- Form -->
   <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-    <div class="md:flex">
-      <div class="p-8">
-        <%= form_with url:password_resets_path,method: :post,local: true do |f|%>
-          <%= f.label :email, User.human_attribute_name(:email), class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
-          <%= f.email_field :email, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your email" %>
-          <div class="mt-6">
-            <%= f.submit t('defaults.login'), class: 'btn btn-primary btn-block' %>
-          </div>
-        <% end %>
-      </div>
+    <div class="p-8">
+      <%= form_with url:password_resets_path,method: :post, local: true do |f| %>
+        <div class="mb-6">
+          <%= f.label :email, User.human_attribute_name(:email), class: "block mb-1 text-lg leading-tight font-medium text-gray-700" %>
+          <%= f.email_field :email, class: "block w-full rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700 py-3 px-4 placeholder-gray-400 placeholder-opacity-75", placeholder: "Enter your email" %>
+        </div>
+        <div class="mt-10">
+          <%= f.submit t('defaults.submit'), class: 'btn btn-primary btn-block w-full py-3 rounded-md text-lg font-medium leading-tight w-48' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

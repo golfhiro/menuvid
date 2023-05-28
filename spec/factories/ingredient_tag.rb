@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :GenreTag do
-    name { "和食" }
+  factory :IngredientTag do
+    name { "肉" }
     association :dish
   end
 end

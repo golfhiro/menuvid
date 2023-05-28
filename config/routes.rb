@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :videos
-    resources :users
-    resources :menus
-    resources :dishes
+  # namespace :admin do
+  #   resources :videos
+  #   resources :users
+  #   resources :menus
+  #   resources :dishes
 
-    root to: "users#index"
-    end
+  #   root to: "users#index"
+  #   end
 
   root "tops#index"
   get 'terms', to: 'tops#terms'

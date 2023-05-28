@@ -10,52 +10,44 @@
 
 <!-- Form -->
   <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-    <div class="md:flex">
-      <div class="p-8">
-        <%= form_with url: login_path, method: :post do |f| %>
-          <%= f.label :email, User.human_attribute_name(:email), class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
-          <%= f.email_field :email, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your email" %>
-          <%= f.label :password, User.human_attribute_name(:password), class: "block mt-3 text-lg leading-tight font-medium text-gray-700" %>
-          <%= f.password_field :password, class: "block w-full mt-1 rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700", placeholder: "Enter your password" %>
-          <div class="mt-6">
-            <%= f.submit t('defaults.login'), class: 'btn btn-primary btn-block' %>
+    <div class="p-8">
+      <%= form_with url: login_path, method: :post do |f| %>
+        <div class="mb-6">
+          <%= f.label :email, User.human_attribute_name(:email), class: "block mb-1 text-lg leading-tight font-medium text-gray-700" %>
+          <%= f.email_field :email, class: "block w-full rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700 py-3 px-4 placeholder-gray-400 placeholder-opacity-75", placeholder: "登録済みのアドレスをご入力してください" %>
+        </div>
+        <div class="mb-6">
+          <%= f.label :password, User.human_attribute_name(:password), class: "block mb-1 text-lg leading-tight font-medium text-gray-700" %>
+          <%= f.password_field :password, class: "block w-full rounded-md bg-gray-200 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 shadow-sm text-gray-700 py-3 px-4 placeholder-gray-400 placeholder-opacity-75", placeholder: "パスワード(7文字以上)" %>
+        </div>
+        <div class="mt-10">
+          <%= f.submit t('defaults.login'), class: 'btn btn-primary btn-block w-full py-3 rounded-md text-lg font-medium leading-tight w-48' %>
+        </div>
+          <div class="flex justify-center mt-6">
+            <%# <div class="border-r-2 border-gray-400 px-4"> %>
+              <%= link_to 'アカウントをお持ちでない方はこちら', new_user_path, class: "text-gray-600 hover:text-gray-900 font-medium underline decoration-1" %>
+            <%# </div> %>
+            <%# <div class="px-4"> %>
+              <%# <%= link_to t('.password_forget'), new_password_reset_path, class: "text-gray-600 hover:text-gray-900 font-medium" %>
+            <%# </div> %>
           </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-
   <div class="flex justify-center mt-6">
-    <div class="border-r-2 border-gray-400 px-4">
-      <%= link_to 'アカウントをお持ちでない方はこちら', new_user_path, class: "text-gray-600 hover:text-gray-900 font-medium" %>
-    </div>
-    <div class="px-4">
-      <%= link_to t('.password_forget'), new_password_reset_path, class: "text-gray-600 hover:text-gray-900 font-medium" %>
-    </div>
-  </div>
-
-  <div class="flex justify-center mt-6">
-    <div class="border-r-2 border-gray-400 px-4">
       or
-    </div>
   </div>
 
   <div class="flex justify-center mt-6">
-    <div class="border-r-2 border-gray-400 px-4">
       <%= link_to 'ゲストログイン', '/guest_login', method: :get, class: "text-gray-600 hover:text-indigo-500 active:text-indigo-700 text-lg font-semibold transition duration-100" %>で使ってみる！
-    </div>
   </div>
 
   <div class="flex justify-center mt-6">
-    <div class="border-r-2 border-gray-400 px-4">
       or
-    </div>
   </div>
 
   <div class="flex justify-center mt-6">
-    <div class="border-r-2 border-gray-400 px-4">
       <%= link_to auth_at_provider_path(provider: :line) do %>
         <%= image_tag 'btn_login_base.png' %>
       <% end %>
-  </div>
 </div>

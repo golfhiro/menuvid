@@ -9,9 +9,9 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
-        password_confirmation: パスワード（確認用）
+        password_confirmation: パスワード（確認）
     errors:
       messages:
-      invalid: "%{attribute}が正しくありません。"
-      blank: "%{attribute}を入力してください。"
-      too_short: "%{attribute}は%{count}文字以上で入力してください。"
+        invalid: "%{attribute}が正しくありません。"
+        blank: "%{attribute}を入力してください。"
+        too_short: "%{attribute}は%{count}文字以上で入力してください。"

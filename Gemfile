@@ -41,14 +41,14 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
+# gem "sassc-rails"
 
 gem 'sorcery'
 
 gem 'rails-i18n'
 
 gem 'cssbundling-rails'
-gem "tailwindcss-rails"
+gem 'jsbundling-rails'
 
 gem 'google-api-client', '~> 0.11'
 
@@ -56,16 +56,8 @@ gem 'jquery-rails'
 
 gem "simple_calendar", "~> 2.4"
 
-#管理画面
-gem "administrate"
-
 # LINE Messaging API SDK
 gem 'line-bot-api'
-
-# Active Job
-gem 'delayed_job_active_record'
-# cron
-gem 'whenever', require: false
 
 gem 'config'
 
@@ -94,10 +86,9 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "capybara", '~> 3.38.0'
+  gem "selenium-webdriver", '~> 4.8.1'
+#   gem "webdrivers", '~> 5.2.0'
 end
 
 group :production do #本番環境
