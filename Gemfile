@@ -64,9 +64,6 @@ gem 'config'
 #OGP
 gem "meta-tags"
 
-#管理画面
-gem "administrate"
-
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry-byebug'
