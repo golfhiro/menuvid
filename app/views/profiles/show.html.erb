@@ -15,31 +15,31 @@
       </div>
     </div>
   </div>
-      <%# カレンダー %>
-      <div class="bg-white rounded-lg shadow-lg mt-20 text-center ml-2">
-        <h1 class="font-bold underline underline-offset-8 mb-5"><%= @current_user.name %>さんの献立カレンダー</h1>
-          <%= month_calendar partial: 'simple_calendar/calendar', events: @current_user_menus, class: 'overflow-auto' do |date, menus| %>
-            <div class="flex items-center justify-between border-b border-gray-200 py-3">
-              <div class="flex items-center">
-                <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mr-2"><%= date.to_s.slice(8, 2) %></div>
-                  <div>
-                    <% if menus.present? %>
-                      <% menus.each do |menu| %>
-                        <p><%= truncate(menu.dish.name, length: 10) %></p>
-                        <% if menu.dish.genre_tags.first && menu.dish.genre_tags.first.name.present? %>
-                          <span class="text-xs bg-error  px-2 py-1 rounded-full mr-2"><%= menu.dish.genre_tags.first.name %></span>
-                        <% end %>
-                        <% if menu.dish.ingredient_tags.first && menu.dish.ingredient_tags.first.name.present? %>
-                          <span class="bg-warning text-xs px-2 py-1 rounded-full"><%= menu.dish.ingredient_tags.first.name %></span>
-                        <% end %>
-                      <% end %>
-                    <% else %>
-                      <p class="text-gray-500">献立がありません</p>
+  <%# カレンダー %>
+  <div class="bg-white rounded-lg shadow-lg mt-20 text-center ml-2">
+    <h1 class="font-bold underline underline-offset-8 mb-5"><%= @current_user.name %>さんの献立カレンダー</h1>
+      <%= month_calendar partial: 'simple_calendar/calendar', events: @current_user_menus, class: 'overflow-auto' do |date, menus| %>
+        <div class="flex items-center justify-between border-b border-gray-200 py-3">
+          <div class="flex items-center">
+            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 mr-2"><%= date.to_s.slice(8, 2) %></div>
+              <div>
+                <% if menus.present? %>
+                  <% menus.each do |menu| %>
+                    <p><%= link_to menu.dish.name, menus_path(date: date) %></p>
+                    <% if menu.dish.genre_tags.first && menu.dish.genre_tags.first.name.present? %>
+                      <span class="text-xs bg-error  px-2 py-1 rounded-full mr-2"><%= menu.dish.genre_tags.first.name %></span>
                     <% end %>
-                  </div>
+                    <% if menu.dish.ingredient_tags.first && menu.dish.ingredient_tags.first.name.present? %>
+                      <span class="bg-warning text-xs px-2 py-1 rounded-full"><%= menu.dish.ingredient_tags.first.name %></span>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <p class="text-gray-500">献立がありません</p>
+                <% end %>
               </div>
-            </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
