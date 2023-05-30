@@ -24,7 +24,13 @@ class MenusController < ApplicationController
   def create_menu_for_date(date)
     return if current_user.menus.exists?(date: date)
 
-    dish = Dish.order("RANDOM()").first
+    previous_menu = current_user.menus.find_by(date: date - 1.day)
+
+    # 前日のメニューのジャンルIDを取得
+    previous_genre_id = previous_menu&.dish&.genre_tags&.pluck(:id)
+
+    # 前日のジャンルと被らないジャンルをランダムに選択
+    dish = Dish.joins(:genre_tags).where.not(genre_tags: { id: previous_genre_id }).order("RANDOM()").first
     current_user.menus.create(date: date, dish: dish)
   end
 
