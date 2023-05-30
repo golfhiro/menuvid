@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-      resources :videos
-      resources :users
-      resources :menus
-      resources :ingredient_tags
-      resources :genre_tags
-      resources :dish_ingredient_tags
-      resources :dish_genre_tags
-      resources :dishes
-      resources :authentications
-
-      root to: "dishes#index"
-    end
-
   root "tops#index"
   get 'terms', to: 'tops#terms'
   get 'privacy', to: 'tops#privacy'
